@@ -44,7 +44,11 @@ namespace WebApplication1
             return (List<Person>)peple;
         }
 
-
+        public void lisäätuutori(Person p)
+        {
+            db.People.Add(p);
+            db.SaveChanges();
+        }
 
     }
 }
