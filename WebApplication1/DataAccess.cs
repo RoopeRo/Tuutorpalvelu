@@ -1,9 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using WebApplication1.Models;
 
 namespace WebApplication1
@@ -47,6 +44,30 @@ namespace WebApplication1
             return (List<Person>)peple;
         }
 
+        public void lisääkäyttäjä(Person p)
+        {
+            db.People.Add(p);
+            db.SaveChanges();
+        }
+
+        public void lisääpalvelu(Palvelu p, int tuutoriid)
+        {
+            var tuutori = db.People.Find(tuutoriid);
+
+            tuutori.Palvelus.Add(p);
+
+            db.People.Update(tuutori);
+            db.SaveChanges();
+
+        }
+        public bool TarkistaKäyttäjänAuth(string username, string password)
+        {
+            if (db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault() != null && db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault().Password == password)
+            {
+                return true;
+            }
+            return false;
+        }
 
 
     }

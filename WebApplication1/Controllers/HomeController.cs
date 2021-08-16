@@ -25,11 +25,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
-            TutorpalveluDBContext db = new TutorpalveluDBContext();
-            if (db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault() != null && db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault().Password == password)
+            bool AuthOK = new DataAccess().TarkistaKäyttäjänAuth(username, password);
+            if (AuthOK)
             {
-                ViewBag.OK = true;
+                RedirectToAction("Tutor", "Sisälle");
             }
+            ViewBag.AuthOK = false;
             return View();
         }
 
