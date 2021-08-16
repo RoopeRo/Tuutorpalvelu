@@ -3,6 +3,32 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-2">Tervetuloa</h1>
+    <hr />
+    <h3 class="display-4"> TuutorPalvelu on super awesome palvelu, joka tarjoaa oppijoille tutoreita</h3>
+    <p></p>
+    <h2>Kirjaudu sisään: </h2>
+    @using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+
+        <table cellpadding="5" cellspacing="0" style="margin:auto">
+            <tr>
+                
+                <td>
+                    @Html.TextBox("username", "Käyttäjätunnus")
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.Password("password", "Salasana")
+                </td>
+            </tr>
+            <tr>
+                <td><input type="submit" value="Sisään" /></td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    <br />
+    @Html.ActionLink("Uusi käyttäjä", "Index", "Home")
 </div>
