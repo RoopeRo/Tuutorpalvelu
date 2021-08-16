@@ -141,3 +141,4 @@ C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\WebApplica
 C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\ref\WebApplication1.dll
 C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\bin\Debug\net5.0\appsettings.json
