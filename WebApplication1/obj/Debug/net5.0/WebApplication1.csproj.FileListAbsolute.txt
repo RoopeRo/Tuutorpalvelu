@@ -1,5 +1,4 @@
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\appsettings.Development.json
-C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\appsettings.json
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\WebApplication1.exe
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\WebApplication1.deps.json
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\WebApplication1.runtimeconfig.json
@@ -70,3 +69,6 @@ C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\WebApplication1.dll
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\ref\WebApplication1.dll
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääPalvelu.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Palvelu\HaePalvelut.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääTutor.cshtml.g.cs
