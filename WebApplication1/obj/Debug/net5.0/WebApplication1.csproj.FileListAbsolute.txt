@@ -140,3 +140,9 @@ C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\WebApplica
 C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\ref\WebApplication1.dll
 C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 C:\work\v8\Miniprojekti\Miniprojekti\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Palvelu\HaeDetails.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Palvelu\HaePalvelutFiltteri.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\HaeTutorinPalvelut.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääPalvelu.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääTutor.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Palvelu\HaePalvelut.cshtml.g.cs

@@ -9,14 +9,16 @@ namespace WebApplication1.Controllers
 {
     public class PalveluController : Controller
     {
-        public IActionResult HaePalvelutKaikki()
+        [HttpGet]
+        public IActionResult HaePalvelut()
         {
-            DataAccess haku = new DataAccess();
-            var palvelut = haku.haepalvelut();
-            ViewBag.palvelut = palvelut;
+            //DataAccess haku = new DataAccess();
+            //var palvelut = haku.haepalvelut();
+            //ViewBag.palvelut = palvelut;
             return View();
         }
 
+        [HttpGet]
         public IActionResult HaeDetails()
         {
             //detailsien näyttämien

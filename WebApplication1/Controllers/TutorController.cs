@@ -8,13 +8,13 @@ namespace WebApplication1.Controllers
 {
     public class TutorController : Controller
     {
-        [HttpPost]
+        [HttpGet]
         public IActionResult LisääTutor()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public IActionResult LisääPalvelu()
         {
             return View();
