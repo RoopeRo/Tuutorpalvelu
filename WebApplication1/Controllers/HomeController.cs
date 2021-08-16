@@ -22,6 +22,13 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Index(string username, string password)
+        {
+            TutorpalveluDBContext db = new TutorpalveluDBContext();
+            
+            return View();
+        }
 
         public IActionResult Privacy()
         {

@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\academycsharp\\viikko8\\WebApplication1\\WebApplication1.csproj": {}
+    "C:\\work\\v8\\Miniprojekti\\Miniprojekti\\WebApplication1\\WebApplication1.csproj": {}
   },
   "projects": {
-    "C:\\academycsharp\\viikko8\\WebApplication1\\WebApplication1.csproj": {
+    "C:\\work\\v8\\Miniprojekti\\Miniprojekti\\WebApplication1\\WebApplication1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\academycsharp\\viikko8\\WebApplication1\\WebApplication1.csproj",
+        "projectUniqueName": "C:\\work\\v8\\Miniprojekti\\Miniprojekti\\WebApplication1\\WebApplication1.csproj",
         "projectName": "WebApplication1",
-        "projectPath": "C:\\academycsharp\\viikko8\\WebApplication1\\WebApplication1.csproj",
-        "packagesPath": "C:\\Users\\niina\\.nuget\\packages\\",
-        "outputPath": "C:\\academycsharp\\viikko8\\WebApplication1\\obj\\",
+        "projectPath": "C:\\work\\v8\\Miniprojekti\\Miniprojekti\\WebApplication1\\WebApplication1.csproj",
+        "packagesPath": "C:\\Users\\Marko\\.nuget\\packages\\",
+        "outputPath": "C:\\work\\v8\\Miniprojekti\\Miniprojekti\\WebApplication1\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\niina\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Marko\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
