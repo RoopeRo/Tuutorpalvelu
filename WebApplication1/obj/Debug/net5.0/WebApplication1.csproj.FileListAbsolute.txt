@@ -1,5 +1,4 @@
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\appsettings.Development.json
-C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\appsettings.json
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\WebApplication1.exe
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\WebApplication1.deps.json
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\WebApplication1.runtimeconfig.json
