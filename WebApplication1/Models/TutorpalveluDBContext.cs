@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Configuration;
 
 #nullable disable
 
@@ -21,7 +20,7 @@ namespace WebApplication1.Models
         public virtual DbSet<Käyttäjä> Käyttäjäs { get; set; }
         public virtual DbSet<Palvelu> Palvelus { get; set; }
         public virtual DbSet<Person> People { get; set; }
-        
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
