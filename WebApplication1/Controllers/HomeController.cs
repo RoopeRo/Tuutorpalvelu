@@ -22,6 +22,16 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        [HttpPost]
+        public IActionResult Index(string username, string password)
+        {
+            TutorpalveluDBContext db = new TutorpalveluDBContext();
+            if (db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault() != null && db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault().Password == password)
+            {
+                ViewBag.OK = true;
+            }
+            return View();
+        }
 
         public IActionResult Privacy()
         {

@@ -17,6 +17,7 @@ namespace WebApplication1.Models
         {
         }
 
+        public virtual DbSet<Käyttäjä> Käyttäjäs { get; set; }
         public virtual DbSet<Palvelu> Palvelus { get; set; }
         public virtual DbSet<Person> People { get; set; }
 
@@ -24,12 +25,33 @@ namespace WebApplication1.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("server=DESKTOP-23QNULB\\MSSQLSERVER01;database=TutorpalveluDB3;trusted_connection=true");
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.HasAnnotation("Relational:Collation", "Finnish_Swedish_CI_AS");
+            modelBuilder.HasAnnotation("Relational:Collation", "SQL_Latin1_General_CP1_CI_AS");
+
+            modelBuilder.Entity<Käyttäjä>(entity =>
+            {
+                entity.HasKey(e => e.Username)
+                    .HasName("PK__Käyttäjä__F3DBC573614FB5D6");
+
+                entity.ToTable("Käyttäjä");
+
+                entity.Property(e => e.Username)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("username");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("password");
+            });
 
             modelBuilder.Entity<Palvelu>(entity =>
             {
