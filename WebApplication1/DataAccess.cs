@@ -50,5 +50,16 @@ namespace WebApplication1
             db.SaveChanges();
         }
 
+        public void lisääpalvelu(Palvelu p, int tuutoriid)
+        {
+            var tuutori = db.People.Find(tuutoriid);
+
+            tuutori.Palvelus.Add(p);
+
+            db.People.Update(tuutori);
+
+        }
+
+
     }
 }
