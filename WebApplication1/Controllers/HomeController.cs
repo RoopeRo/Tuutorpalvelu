@@ -34,7 +34,7 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
-            bool AuthOK = new DataAccess().TarkistaKäyttäjänAuth(username, password);
+            bool AuthOK = new DataAccess(_context).TarkistaKäyttäjänAuth(username, password);
             if (AuthOK)
             {
                 RedirectToAction("Tutor", "Sisälle");

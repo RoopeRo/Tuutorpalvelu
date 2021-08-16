@@ -7,10 +7,11 @@ namespace WebApplication1
 {
     public class DataAccess
     {
-        public DataAccess()
+        public TutorpalveluDBContext db { get; set; }
+        public DataAccess(TutorpalveluDBContext data)
         {
+            db = data;
         }
-        TutorpalveluDBContext db = new TutorpalveluDBContext();
 
         public List<Palvelu> haepalvelut()
         {
