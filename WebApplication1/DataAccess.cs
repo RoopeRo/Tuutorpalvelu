@@ -57,6 +57,7 @@ namespace WebApplication1
             tuutori.Palvelus.Add(p);
 
             db.People.Update(tuutori);
+            db.SaveChanges();
 
         }
 
