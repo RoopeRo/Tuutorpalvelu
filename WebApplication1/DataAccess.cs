@@ -26,11 +26,11 @@ namespace WebApplication1
             return (List<Person>)lista;
         }
 
-        public List<Person> haetuutorinpalvelut(int tunniste)
+        public List<Palvelu> haetuutorinpalvelut(int tunniste)
         {
             var lista = db.Palvelus.Where(p => p.TutorId == tunniste);
 
-            return (List<Person>)lista;
+            return (List<Palvelu>)lista;
         }
 
 
