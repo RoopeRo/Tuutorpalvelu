@@ -382,4 +382,6 @@ FodyWeavers.xsd
 .idea/
 *.sln.iml
 
+.vs/
+
 appsettings.json
