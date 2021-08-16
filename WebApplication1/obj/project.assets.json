@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Roope Rouvali\\source\\repos\\WebApplication1\\WebApplication1.csproj",
+      "projectUniqueName": "C:\\Users\\Roope Rouvali\\Desktop\\Koulutus\\viikkoprogis\\WebApplication1\\WebApplication1.csproj",
       "projectName": "WebApplication1",
-      "projectPath": "C:\\Users\\Roope Rouvali\\source\\repos\\WebApplication1\\WebApplication1.csproj",
+      "projectPath": "C:\\Users\\Roope Rouvali\\Desktop\\Koulutus\\viikkoprogis\\WebApplication1\\WebApplication1.csproj",
       "packagesPath": "C:\\Users\\Roope Rouvali\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Roope Rouvali\\source\\repos\\WebApplication1\\obj\\",
+      "outputPath": "C:\\Users\\Roope Rouvali\\Desktop\\Koulutus\\viikkoprogis\\WebApplication1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Roope Rouvali\\AppData\\Roaming\\NuGet\\NuGet.Config",
