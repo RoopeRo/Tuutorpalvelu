@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +32,19 @@ namespace WebApplication1
             var lista = db.Palvelus.Where(p => p.TutorId == tunniste);
 
             return (List<Palvelu>)lista;
+        }
+
+        public List<Person> haepalvelutuutorit(int palvelutunniste)
+        {
+            var peeple = db.People.Include(p => p.Palvelus).ToList();
+
+            var peple = from p in peeple
+                        from k in p.Palvelus
+                        where k.PalveluId == palvelutunniste
+                        select p;
+           
+
+            return (List<Person>)peple;
         }
 
 
