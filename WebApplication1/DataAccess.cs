@@ -7,6 +7,9 @@ namespace WebApplication1
 {
     public class DataAccess
     {
+        public DataAccess()
+        {
+        }
         TutorpalveluDBContext db = new TutorpalveluDBContext();
 
         public List<Palvelu> haepalvelut()

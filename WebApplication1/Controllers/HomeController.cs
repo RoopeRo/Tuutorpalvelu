@@ -12,11 +12,16 @@ namespace WebApplication1.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly TutorpalveluDBContext _context;
+
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
+            TutorpalveluDBContext context = _context;
+            
         }
+
 
         public IActionResult Index()
         {
