@@ -12,7 +12,15 @@ using WebApplication1.Models;
 namespace WebApplication1.Controllers
 {
     public class HenkilöController : Controller
+
     {
+        private readonly TutorpalveluDBContext _context;
+        public HenkilöController(TutorpalveluDBContext context)
+        {
+            _context = context;
+
+
+        }
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
@@ -24,7 +32,9 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult LisääHenkilö(Person p)
         {
-            return RedirectToAction("LisääKäyttäjä", p);
+            DataAccess da = new DataAccess(_context);
+            da.lisääkäyttäjä(p);
+            return RedirectToAction("NäytäPalvelut", p);
         }
 
         public IActionResult LisääKäyttäjä(Person p)
@@ -38,7 +48,7 @@ namespace WebApplication1.Controllers
         {
             return Content("Uusi tuutori lisätty!");
 
-        }
+        //}
 
         [HttpGet]
         public IActionResult LisääPalvelu()
