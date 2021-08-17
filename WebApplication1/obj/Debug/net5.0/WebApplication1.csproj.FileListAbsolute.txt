@@ -146,3 +146,7 @@ C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\HaeT
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääPalvelu.cshtml.g.cs
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääTutor.cshtml.g.cs
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Palvelu\HaePalvelut.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\EditoiPalvelua.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\EditoiTuutoria.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\PoistaPalvelu.cshtml.g.cs
+C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\PoistaTutor.cshtml.g.cs
