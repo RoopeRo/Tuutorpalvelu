@@ -54,11 +54,11 @@ namespace WebApplication1
             db.SaveChanges();
         }
 
-        public void lisääpalvelu(Palvelu p)
+        public void lisääpalvelu(Palvelu palvelu)
         {
-            var tuutori = db.People.Find(p.TutorId);
+            var tuutori = db.People.Find(palvelu.TutorId);
 
-            tuutori.Palvelus.Add(p);
+            tuutori.Palvelus.Add(palvelu);
             db.People.Update(tuutori);
             db.SaveChanges();
 
