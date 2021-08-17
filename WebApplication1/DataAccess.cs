@@ -16,7 +16,7 @@ namespace WebApplication1
         public List<Palvelu> haepalvelut()
         {
 
-            var Lista = db.Palvelus.Where(p => p.PalveluId != -1);
+            var Lista = db.Palvelus.Where(p => p.PalveluId != -1).ToList();
 
             return (List<Palvelu>)Lista;
         }
@@ -30,7 +30,7 @@ namespace WebApplication1
 
         public List<Palvelu> haetuutorinpalvelut(int tunniste)
         {
-            var lista = db.Palvelus.Where(p => p.TutorId == tunniste);
+            var lista = db.Palvelus.Where(p => p.TutorId == tunniste).ToList();
 
             return (List<Palvelu>)lista;
         }
@@ -39,10 +39,10 @@ namespace WebApplication1
         {
             var peeple = db.People.Include(p => p.Palvelus).ToList();
 
-            var peple = from p in peeple
+            var peple = (from p in peeple
                         from k in p.Palvelus
                         where k.PalveluId == palvelutunniste
-                        select p;
+                        select p).ToList();
            
 
             return (List<Person>)peple;
