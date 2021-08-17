@@ -16,14 +16,17 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
+            DataAccess haku = new DataAccess();
+            var henkilö = haku.haetuutori();
             return View();
         }
+
         [HttpPost]
         public IActionResult LisääHenkilö(Person p)
         {
-
             return RedirectToAction("LisääKäyttäjä", p);
         }
+
         public IActionResult LisääKäyttäjä(Person p)
         {
             
@@ -33,18 +36,6 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult LisääTutor(Person person)
         {
-            var url = @"https://localhost:44325/Tutor/LisääTutor";
-            var body = JsonConvert.SerializeObject(person);
-            string json = "";
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-                var content = new StringContent(body, UTF8Encoding.UTF8, "application/json");
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = client.PostAsync(url, content).Result;
-                json = response.Content.ReadAsStringAsync().Result;
-            }
             return Content("Uusi tuutori lisätty!");
 
         }
@@ -52,24 +43,15 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult LisääPalvelu()
         {
+            DataAccess haku = new DataAccess();
+            var palvelut = haku.haepalvelut();
+            ViewBag.palvelut = palvelut;
             return View();
         }
 
         [HttpPost]
         public IActionResult LisääPalvelu(Palvelu palvelu)
         {
-            var url = @"https://localhost:44325/Tutor/LisääPalvelu";
-            var body = JsonConvert.SerializeObject(palvelu);
-            string json = "";
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-                var content = new StringContent(body, UTF8Encoding.UTF8, "application/json");
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = client.PostAsync(url, content).Result;
-                json = response.Content.ReadAsStringAsync().Result;
-            }
             return Content("Uusi palvelu lisätty!");
         }
 
@@ -77,6 +59,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult NäytäPalvelut()
         {
+
             return View();
         }
     }
