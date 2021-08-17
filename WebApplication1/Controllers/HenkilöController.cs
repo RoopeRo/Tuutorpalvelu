@@ -19,25 +19,24 @@ namespace WebApplication1.Controllers
         {
             _context = context;
 
-
         }
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
-            DataAccess haku = new DataAccess();
-            var henkilö = haku.haetuutori();
+            DataAccess da = new DataAccess(_context);
+            var henkilö = da.haetuutorit();
             return View();
         }
 
         [HttpPost]
-        public IActionResult LisääHenkilö(Person p)
+        public IActionResult LisääHenkilö(Person person)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääkäyttäjä(p);
-            return RedirectToAction("NäytäPalvelut", p);
+            da.lisääkäyttäjä(person);
+            return RedirectToAction("NäytäPalvelut", person);
         }
 
-        public IActionResult LisääKäyttäjä(Person p)
+        public IActionResult LisääKäyttäjä(Person person)
         {
             
             return View();
@@ -48,21 +47,23 @@ namespace WebApplication1.Controllers
         {
             return Content("Uusi tuutori lisätty!");
 
-        //}
+        }
 
         [HttpGet]
         public IActionResult LisääPalvelu()
         {
-            DataAccess haku = new DataAccess();
-            var palvelut = haku.haepalvelut();
+            DataAccess da = new DataAccess(_context);
+            var palvelut = da.haepalvelut();
             ViewBag.palvelut = palvelut;
             return View();
         }
 
         [HttpPost]
-        public IActionResult LisääPalvelu(Palvelu palvelu)
+        public IActionResult LisääPalvelu(Palvelu palvelu, int tuutorid)
         {
-            return Content("Uusi palvelu lisätty!");
+            DataAccess da = new DataAccess(_context);
+            da.lisääpalvelu(palvelu, tuutorid);
+            return RedirectToAction("NäytäPalvelut", palvelu);
         }
 
 
