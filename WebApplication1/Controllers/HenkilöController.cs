@@ -12,7 +12,15 @@ using WebApplication1.Models;
 namespace WebApplication1.Controllers
 {
     public class HenkilöController : Controller
+
     {
+        private readonly TutorpalveluDBContext _context;
+        public HenkilöController(TutorpalveluDBContext context)
+        {
+            _context = context;
+
+
+        }
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
@@ -21,8 +29,9 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult LisääHenkilö(Person p)
         {
-
-            return RedirectToAction("LisääKäyttäjä", p);
+            DataAccess da = new DataAccess(_context);
+            da.lisääkäyttäjä(p);
+            return RedirectToAction("NäytäPalvelut", p);
         }
         public IActionResult LisääKäyttäjä(Person p)
         {
@@ -30,24 +39,24 @@ namespace WebApplication1.Controllers
             return View();
         }
 
-        [HttpPost]
-        public IActionResult LisääTutor(Person person)
-        {
-            var url = @"https://localhost:44325/Tutor/LisääTutor";
-            var body = JsonConvert.SerializeObject(person);
-            string json = "";
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-                var content = new StringContent(body, UTF8Encoding.UTF8, "application/json");
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = client.PostAsync(url, content).Result;
-                json = response.Content.ReadAsStringAsync().Result;
-            }
-            return Content("Uusi tuutori lisätty!");
+        //[HttpPost]
+        //public IActionResult LisääTutor(Person person)
+        //{
+        //    var url = @"https://localhost:44325/Tutor/LisääTutor";
+        //    var body = JsonConvert.SerializeObject(person);
+        //    string json = "";
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.DefaultRequestHeaders.Accept.Add(
+        //        new MediaTypeWithQualityHeaderValue("application/json"));
+        //        var content = new StringContent(body, UTF8Encoding.UTF8, "application/json");
+        //        content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+        //        var response = client.PostAsync(url, content).Result;
+        //        json = response.Content.ReadAsStringAsync().Result;
+        //    }
+        //    return Content("Uusi tuutori lisätty!");
 
-        }
+        //}
 
         [HttpGet]
         public IActionResult LisääPalvelu()
