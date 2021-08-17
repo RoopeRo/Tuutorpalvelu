@@ -14,18 +14,21 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var palvelu in ViewBag.Palvelut)
+        @if (ViewBag.Palvelut != null)
         {
-        <tr>
-            <td>@palvelu.PalveluId</td>
-            <td>@palvelu.Nimi</td>
-            <td>@palvelu.Ryhmä</td>
-            <td>@palvelu.Tyyppi</td>
-            <td>@palvelu.Pvm</td>
-            <td>@palvelu.Kesto</td>
-            <td>@palvelu.Hinta</td>
-            <td>@($"{palvelu.Etunimi} {palvelu.Sukunimi}")</td>
-        </tr>
+            @foreach (var pal in ViewBag.Palvelut)
+            {
+                <tr>
+                    <td>@pal.PalveluId</td>
+                    <td>@pal.Nimi</td>
+                    <td>@pal.Ryhmä</td>
+                    <td>@pal.Tyyppi</td>
+                    <td>@pal.Pvm</td>
+                    <td>@pal.Kesto</td>
+                    <td>@pal.Hinta</td>
+                    <td>@($"{pal.Tutor.Etunimi} {pal.Tutor.Sukunimi}")</td>
+                </tr>
+            }
         }
     </tbody>
 </table>
