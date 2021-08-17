@@ -1,0 +1,18 @@
+﻿@{
+    ViewBag.Title = "Omat palvelut";
+}
+
+<h1>Omat palvelut</h1>
+
+<p>Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta. </p>
+
+<br />
+<h3>Tarjoamasi palvelut:</h3>
+<div>
+    <ul>
+        @foreach (var palvelu in ViewBag.OP)
+        {
+            <li>@palvelu.Nimi</li>
+        }
+    </ul>
+</div>
