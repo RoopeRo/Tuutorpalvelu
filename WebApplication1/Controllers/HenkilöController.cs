@@ -18,45 +18,24 @@ namespace WebApplication1.Controllers
         public HenkilöController(TutorpalveluDBContext context)
         {
             _context = context;
-
-
         }
+
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
             return View();
         }
+
         [HttpPost]
-        public IActionResult LisääHenkilö(Person p)
+        public IActionResult LisääHenkilö(Person person) //tuutorin tai asiakkaan lisääminen
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääkäyttäjä(p);
-            return RedirectToAction("NäytäPalvelut", p);
-        }
-        public IActionResult LisääKäyttäjä(Person p)
-        {
-            
+            da.Lisääkäyttäjä(person);
+            var q = da.haetuutorit();
+            ViewBag.People = q;
             return View();
+            //return RedirectToAction("Index", "Home");
         }
-
-        //[HttpPost]
-        //public IActionResult LisääTutor(Person person)
-        //{
-        //    var url = @"https://localhost:44325/Tutor/LisääTutor";
-        //    var body = JsonConvert.SerializeObject(person);
-        //    string json = "";
-        //    using (var client = new HttpClient())
-        //    {
-        //        client.DefaultRequestHeaders.Accept.Add(
-        //        new MediaTypeWithQualityHeaderValue("application/json"));
-        //        var content = new StringContent(body, UTF8Encoding.UTF8, "application/json");
-        //        content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-        //        var response = client.PostAsync(url, content).Result;
-        //        json = response.Content.ReadAsStringAsync().Result;
-        //    }
-        //    return Content("Uusi tuutori lisätty!");
-
-        //}
 
         [HttpGet]
         public IActionResult LisääPalvelu()
@@ -67,26 +46,20 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult LisääPalvelu(Palvelu palvelu)
         {
-            var url = @"https://localhost:44325/Tutor/LisääPalvelu";
-            var body = JsonConvert.SerializeObject(palvelu);
-            string json = "";
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Accept.Add(
-                new MediaTypeWithQualityHeaderValue("application/json"));
-                var content = new StringContent(body, UTF8Encoding.UTF8, "application/json");
-                content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
-                var response = client.PostAsync(url, content).Result;
-                json = response.Content.ReadAsStringAsync().Result;
-            }
-            return Content("Uusi palvelu lisätty!");
+            DataAccess da = new DataAccess(_context);
+            da.lisääpalvelu(palvelu);
+            return RedirectToAction("HaeTutorinPalvelut");
         }
-
 
         [HttpGet]
-        public IActionResult NäytäPalvelut()
+        public IActionResult HaeTutorinPalvelut(int tunniste)
         {
+            DataAccess haku = new DataAccess(_context);
+            var palvelut = haku.haetuutorinpalvelut(tunniste);
+            ViewBag.palvelut = palvelut;
             return View();
+            //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa
         }
+
     }
 }

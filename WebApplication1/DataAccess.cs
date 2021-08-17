@@ -16,50 +16,49 @@ namespace WebApplication1
         public List<Palvelu> haepalvelut()
         {
 
-            var Lista = db.Palvelus.Where(p => p.PalveluId != -1);
+            var Lista = db.Palvelus.Where(p => p.PalveluId != -1).ToList();
 
             return (List<Palvelu>)Lista;
         }
 
-        public List<Person> haetuutorit()
+        public List<Person> haetuutorit() //hakee henkilöistä
         {
-            var lista = db.People.Where(p => p.Tutor == true);
+            var lista = db.People.Where(p => p.Tutor == true).ToList();
 
             return (List<Person>)lista;
         }
 
-        public List<Palvelu> haetuutorinpalvelut(int tunniste)
+        public List<Palvelu> haetuutorinpalvelut(int tunniste) //valitse yhden tuutorin monesta samannimisestä tuutorista
         {
-            var lista = db.Palvelus.Where(p => p.TutorId == tunniste);
+            var lista = db.Palvelus.Where(p => p.TutorId == tunniste).ToList();
 
             return (List<Palvelu>)lista;
         }
 
-        public List<Person> haepalvelutuutorit(int palvelutunniste)
+        public List<Person> haepalvelutuutorit(int palvelutunniste) //palveluita palvelutunnisteen perusteella
         {
             var peeple = db.People.Include(p => p.Palvelus).ToList();
 
-            var peple = from p in peeple
+            var peple = (from p in peeple
                         from k in p.Palvelus
                         where k.PalveluId == palvelutunniste
-                        select p;
+                        select p).ToList();
            
 
             return (List<Person>)peple;
         }
 
-        public void lisääkäyttäjä(Person p)
+        public void Lisääkäyttäjä(Person p)
         {
             db.People.Add(p);
             db.SaveChanges();
         }
 
-        public void lisääpalvelu(Palvelu p, int tuutoriid)
+        public void lisääpalvelu(Palvelu palvelu)
         {
-            var tuutori = db.People.Find(tuutoriid);
+            var tuutori = db.People.Find(palvelu.TutorId);
 
-            tuutori.Palvelus.Add(p);
-
+            tuutori.Palvelus.Add(palvelu);
             db.People.Update(tuutori);
             db.SaveChanges();
 
