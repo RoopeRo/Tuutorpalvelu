@@ -17,33 +17,28 @@ namespace WebApplication1
         {
 
             var Lista = db.Palvelus.Where(p => p.PalveluId != -1);
-
             return (List<Palvelu>)Lista;
         }
 
-        public List<Person> haetuutorit()
+        public List<Person> haetuutorit() //hakee henkilöistä
         {
             var lista = db.People.Where(p => p.Tutor == true);
-
             return (List<Person>)lista;
         }
 
-        public List<Palvelu> haetuutorinpalvelut(int tunniste)
+        public List<Palvelu> haetuutorinpalvelut(int tunniste) //valitse yhden tuutorin monesta samannimisestä tuutorista
         {
             var lista = db.Palvelus.Where(p => p.TutorId == tunniste);
-
             return (List<Palvelu>)lista;
         }
 
-        public List<Person> haepalvelutuutorit(int palvelutunniste)
+        public List<Person> haepalvelutuutorit(int palvelutunniste) //palveluita palvelutunnisteen perusteella
         {
             var peeple = db.People.Include(p => p.Palvelus).ToList();
-
             var peple = from p in peeple
                         from k in p.Palvelus
                         where k.PalveluId == palvelutunniste
                         select p;
-           
 
             return (List<Person>)peple;
         }
@@ -57,9 +52,7 @@ namespace WebApplication1
         public void lisääpalvelu(Palvelu p, int tuutoriid)
         {
             var tuutori = db.People.Find(tuutoriid);
-
             tuutori.Palvelus.Add(p);
-
             db.People.Update(tuutori);
             db.SaveChanges();
 
