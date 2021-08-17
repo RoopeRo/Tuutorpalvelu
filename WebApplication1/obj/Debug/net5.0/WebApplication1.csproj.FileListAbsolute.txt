@@ -375,7 +375,6 @@ C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\runtimes\win-arm\lib\n
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\runtimes\win-arm64\lib\net5.0\dotnet-aspnet-codegenerator-design.exe
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\LisääHenkilö.cshtml.g.cs
 C:\academycsharp\viikko8\WebApplication1\bin\Debug\net5.0\appsettings.json
-C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\EditoiPalvelua.cshtml.g.cs
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\EditoiTuutoria.cshtml.g.cs
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\HaeTutorinPalvelut.cshtml.g.cs
 C:\academycsharp\viikko8\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\LisääPalvelu.cshtml.g.cs
