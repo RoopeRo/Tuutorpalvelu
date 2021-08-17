@@ -7,7 +7,7 @@
 <p>Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta. </p>
 
 <br />
-<h2>Tarjoamasi Palvelut:</h2>
+<h2>Palvelut:</h2>
 @*<div>
         <ul>
             @foreach (var palvelu in ViewBag.OP)
@@ -22,8 +22,7 @@
 
 
 <p>
-
-    <a asp-action="Create">Lisää uusi palvelu</a>
+    <a asp-action="Create">Create New</a>
 </p>
 <table class="table">
     <thead>
@@ -54,7 +53,7 @@
         </tr>
     </thead>
     <tbody>
-        @foreach (var item in ViewBag.palvelut)
+        @foreach (var item in ViewBag.OP)
         {
             <tr>
                 <td>
