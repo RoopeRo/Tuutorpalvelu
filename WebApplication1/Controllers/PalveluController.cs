@@ -20,10 +20,13 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult HaePalvelut()
         {
-            DataAccess haku = new DataAccess(_context);
-            var palvelut = from pe in _context.People
-                           join pa in _context.Palvelus on pe.PersonId equals pa.PalveluId
-                           select pe;
+            DataAccess DA = new DataAccess(_context);
+            var palvelut = DA.haepalvelut();
+            foreach(var p in palvelut)
+            {
+                _context.Entry(p).Reference(r => r.Tutor).Load();
+            }
+
             ViewBag.Palvelut = palvelut;
             return View();
         }
