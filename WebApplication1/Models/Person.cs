@@ -13,6 +13,8 @@ namespace WebApplication1.Models
         }
 
         public int PersonId { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string Etunimi { get; set; }
         public string Sukunimi { get; set; }
         public string Osoite { get; set; }

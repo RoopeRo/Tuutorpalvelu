@@ -26,9 +26,7 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            TutorpalveluDBContext db = _context;
-            var k = db.Käyttäjäs.Where(k => k.Username != null).FirstOrDefault();
-            ViewBag.Name = k.Username;
+            
             return View();
         }
         [HttpPost]
