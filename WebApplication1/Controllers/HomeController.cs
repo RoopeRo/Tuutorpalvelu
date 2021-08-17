@@ -37,7 +37,7 @@ namespace WebApplication1.Controllers
             bool AuthOK = new DataAccess(_context).TarkistaKäyttäjänAuth(username, password);
             if (AuthOK)
             {
-                RedirectToAction("Tutor", "Sisälle");
+                RedirectToAction("Testi", "Muutos");
             }
             ViewBag.AuthOK = false;
             return View();
