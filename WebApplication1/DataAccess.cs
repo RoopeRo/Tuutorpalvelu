@@ -98,7 +98,18 @@ namespace WebApplication1
             muokattava.Tutor = henkilö.Tutor;
              
         }
-
+        public void PoistaPalvelu(Palvelu palvelu)
+        {
+            var poistettava = db.Palvelus.Find(palvelu.PalveluId);
+            db.Remove(poistettava);
+            db.SaveChanges();
+        }
+        public void PoistaHenkilö(Person henkilö)
+        {
+            var poistettava = db.People.Find(henkilö.PersonId);
+            db.Remove(poistettava);
+            db.SaveChanges();
+        }
 
     }
 }
