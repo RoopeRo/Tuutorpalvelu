@@ -47,7 +47,7 @@ namespace WebApplication1.Controllers
         public IActionResult LisääPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääpalvelu(palvelu, tuutorid);
+            da.lisääpalvelu(palvelu);
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
