@@ -18,17 +18,16 @@ namespace WebApplication1.Controllers
         public HenkilöController(TutorpalveluDBContext context)
         {
             _context = context;
-
         }
+
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
-            
             return View();
         }
 
         [HttpPost]
-        public IActionResult LisääHenkilö(Person person)
+        public IActionResult LisääHenkilö(Person person) //tuutorin tai asiakkaan lisääminen
         {
             DataAccess da = new DataAccess(_context);
             da.Lisääkäyttäjä(person);
@@ -41,7 +40,6 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult LisääPalvelu()
         {
-            
             return View();
         }
 
@@ -49,16 +47,19 @@ namespace WebApplication1.Controllers
         public IActionResult LisääPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääpalvelu(palvelu);
-            return RedirectToAction("NäytäPalvelut", palvelu);
+            da.lisääpalvelu(palvelu, tuutorid);
+            return RedirectToAction("HaeTutorinPalvelut");
         }
-
 
         [HttpGet]
-        public IActionResult NäytäPalvelut()
+        public IActionResult HaeTutorinPalvelut(int tunniste)
         {
-
+            DataAccess haku = new DataAccess(_context);
+            var palvelut = haku.haetuutorinpalvelut(tunniste);
+            ViewBag.palvelut = palvelut;
             return View();
+            //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa
         }
+
     }
 }
