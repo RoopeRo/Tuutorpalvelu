@@ -45,17 +45,15 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult LisääPalvelu()
         {
-            DataAccess da = new DataAccess(_context);
-            var palvelut = da.haepalvelut();
-            ViewBag.palvelut = palvelut;
+            
             return View();
         }
 
         [HttpPost]
-        public IActionResult LisääPalvelu(Palvelu palvelu, int tuutorid)
+        public IActionResult LisääPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääpalvelu(palvelu, tuutorid);
+            da.lisääpalvelu(palvelu);
             return RedirectToAction("NäytäPalvelut", palvelu);
         }
 
