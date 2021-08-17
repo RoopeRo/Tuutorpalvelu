@@ -11,11 +11,22 @@ using WebApplication1.Models;
 
 namespace WebApplication1.Controllers
 {
-    public class TutorController : Controller
+    public class HenkilöController : Controller
     {
         [HttpGet]
-        public IActionResult LisääTutor()
+        public IActionResult LisääHenkilö()
         {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult LisääHenkilö(Person p)
+        {
+
+            return RedirectToAction("LisääKäyttäjä", p);
+        }
+        public IActionResult LisääKäyttäjä(Person p)
+        {
+            
             return View();
         }
 

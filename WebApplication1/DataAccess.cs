@@ -7,7 +7,11 @@ namespace WebApplication1
 {
     public class DataAccess
     {
-        TutorpalveluDBContext db = new TutorpalveluDBContext();
+        public TutorpalveluDBContext db { get; set; }
+        public DataAccess(TutorpalveluDBContext data)
+        {
+            db = data;
+        }
 
         public List<Palvelu> haepalvelut()
         {
@@ -62,7 +66,7 @@ namespace WebApplication1
         }
         public bool TarkistaKäyttäjänAuth(string username, string password)
         {
-            if (db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault() != null && db.Käyttäjäs.Where(k => k.Username == username).FirstOrDefault().Password == password)
+            if (db.People.Where(k => k.Username == username).FirstOrDefault() != null && db.People.Where(k => k.Username == username).FirstOrDefault().Password == password)
             {
                 return true;
             }
