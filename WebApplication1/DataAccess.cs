@@ -30,7 +30,7 @@ namespace WebApplication1
 
         public List<Palvelu> haetuutorinpalvelut(int tunniste)
         {
-            var lista = db.Palvelus.Where(p => p.TutorId == tunniste);
+            var lista = db.Palvelus.Where(p => p.TutorId == tunniste).ToList();
 
             return (List<Palvelu>)lista;
         }
