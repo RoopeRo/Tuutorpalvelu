@@ -54,16 +54,17 @@ namespace WebApplication1
             db.SaveChanges();
         }
 
-        public void lisääpalvelu(Palvelu p)
+        public void lisääpalvelu(Palvelu palvelu, int henkilöid)
         {
-            var tuutori = db.People.Find(p.TutorId);
+            Person tuutori = (Person)db.People.Where(p => p.PersonId == henkilöid);
 
-            tuutori.Palvelus.Add(p);
+            tuutori.Palvelus.Add(palvelu);
 
             db.People.Update(tuutori);
             db.SaveChanges();
 
         }
+
         public bool TarkistaKäyttäjänAuth(string username, string password)
         {
             if (db.People.Where(k => k.Username == username).FirstOrDefault() != null && db.People.Where(k => k.Username == username).FirstOrDefault().Password == password)

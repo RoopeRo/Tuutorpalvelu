@@ -46,10 +46,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult LisääPalvelu(Palvelu palvelu)
+        public IActionResult LisääPalvelu(Palvelu palvelu, int henkilöid)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääpalvelu(palvelu);
+            da.lisääpalvelu(palvelu, henkilöid);
             return RedirectToAction("NäytäPalvelut", palvelu);
         }
 
