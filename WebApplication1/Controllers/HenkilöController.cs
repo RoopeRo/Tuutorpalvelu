@@ -31,8 +31,8 @@ namespace WebApplication1.Controllers
         public IActionResult LisääHenkilö(Person person)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääkäyttäjä(person);
-            var q = _context.People.Where(p => p.PersonId != 0).ToList();
+            da.Lisääkäyttäjä(person);
+            var q = da.haetuutorit();
             ViewBag.People = q;
             return View();
             //return RedirectToAction("Index", "Home");
