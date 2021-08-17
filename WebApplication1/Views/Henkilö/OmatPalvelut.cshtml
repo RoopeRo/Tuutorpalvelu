@@ -9,13 +9,13 @@
 <br />
 <h2>Palvelut:</h2>
 @*<div>
-    <ul>
-        @foreach (var palvelu in ViewBag.OP)
-        {
-            <li>@palvelu.Nimi</li>
-        }
-    </ul>
-</div>*@
+        <ul>
+            @foreach (var palvelu in ViewBag.OP)
+            {
+                <li>@palvelu.Nimi</li>
+            }
+        </ul>
+    </div>*@
 
 @*@model IEnumerable<WebApplication1.Models.Palvelu>*@
 
@@ -77,7 +77,7 @@
                 <td>
                     @item.Sijainti
                 </td>
-                
+
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.PalveluId">Edit</a> |
                     <a asp-action="Details" asp-route-id="@item.PalveluId">Details</a> |

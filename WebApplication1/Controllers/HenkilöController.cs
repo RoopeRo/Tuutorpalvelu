@@ -88,5 +88,20 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult OmatPalvelut(int tuutorinID)
+        {
+            DataAccess da = new DataAccess(_context);
+            var palvelut = da.haetuutorinpalvelut(tuutorinID);
+            ViewBag.OP = palvelut.OrderBy(p => p.Tyyppi);
+            ViewBag.PalveluidenMäärä = palvelut.Count();
+            ViewBag.EriTyyppienMäärä =
+                (from p in palvelut
+                 where p.TutorId == tuutorinID
+                 select p.Tyyppi).Distinct().Count();
+
+            return View();
+        }
     }
 }
