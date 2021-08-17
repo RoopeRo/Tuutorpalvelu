@@ -44,7 +44,7 @@ namespace WebApplication1
             return (List<Person>)peple;
         }
 
-        public void lisääkäyttäjä(Person p)
+        public void Lisääkäyttäjä(Person p)
         {
             db.People.Add(p);
             db.SaveChanges();
