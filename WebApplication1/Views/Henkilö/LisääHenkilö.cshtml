@@ -1,0 +1,78 @@
+﻿@model WebApplication1.Models.Person
+
+@{
+    ViewData["Title"] = "LisääHenkilö";
+}
+
+<h1>LisääHenkilö</h1>
+
+<h4>Person</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="LisääHenkilö">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Username" class="control-label"></label>
+                <input asp-for="Username" class="form-control" />
+                <span asp-validation-for="Username" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Etunimi" class="control-label"></label>
+                <input asp-for="Etunimi" class="form-control" />
+                <span asp-validation-for="Etunimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Sukunimi" class="control-label"></label>
+                <input asp-for="Sukunimi" class="form-control" />
+                <span asp-validation-for="Sukunimi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Osoite" class="control-label"></label>
+                <input asp-for="Osoite" class="form-control" />
+                <span asp-validation-for="Osoite" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postitoimipaikka" class="control-label"></label>
+                <input asp-for="Postitoimipaikka" class="form-control" />
+                <span asp-validation-for="Postitoimipaikka" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Postinumero" class="control-label"></label>
+                <input asp-for="Postinumero" class="form-control" />
+                <span asp-validation-for="Postinumero" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PuhNro" class="control-label"></label>
+                <input asp-for="PuhNro" class="form-control" />
+                <span asp-validation-for="PuhNro" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email" class="control-label"></label>
+                <input asp-for="Email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Tutor" /> @Html.DisplayNameFor(model => model.Tutor)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    @Html.ActionLink("Paluu etusivulle", "Index", "Home")
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
