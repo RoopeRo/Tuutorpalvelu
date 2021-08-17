@@ -32,14 +32,10 @@ namespace WebApplication1.Controllers
         {
             DataAccess da = new DataAccess(_context);
             da.lisääkäyttäjä(person);
-            return RedirectToAction("Index", "Home");
-        }
-
-        [HttpPost]
-        public IActionResult LisääTutor(Person person)
-        {
-            return Content("Uusi tuutori lisätty!");
-
+            var q = _context.People.Where(p => p.PersonId != 0).ToList();
+            ViewBag.People = q;
+            return View();
+            //return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
