@@ -54,9 +54,9 @@ namespace WebApplication1
             db.SaveChanges();
         }
 
-        public void lisääpalvelu(Palvelu palvelu, int henkilöid)
+        public void lisääpalvelu(Palvelu palvelu)
         {
-            var tuutori = db.People.Find(henkilöid);
+            var tuutori = db.People.Find(palvelu.TutorId);
 
             tuutori.Palvelus.Add(palvelu);
             db.People.Update(tuutori);
