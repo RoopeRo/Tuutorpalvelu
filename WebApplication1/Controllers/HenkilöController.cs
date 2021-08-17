@@ -56,25 +56,14 @@ namespace WebApplication1.Controllers
         {
             DataAccess haku = new DataAccess(_context);
             var palvelut = haku.haetuutorinpalvelut(tunniste);
-            ViewBag.palvelut = palvelut;
-            return View();
-            //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa
-        }
-
-        [HttpGet]
-        public IActionResult OmatPalvelut(int tuutorinID)
-        {
-            DataAccess da = new DataAccess(_context);
-            var palvelut = da.haetuutorinpalvelut(tuutorinID);
-            ViewBag.OP = palvelut.OrderBy(p => p.Tyyppi);
+            ViewBag.palvelut = palvelut.OrderBy(p => p.Tyyppi);
             ViewBag.PalveluidenMäärä = palvelut.Count();
             ViewBag.EriTyyppienMäärä =
                 (from p in palvelut
-                 where p.TutorId == tuutorinID
+                 where p.TutorId == tunniste
                  select p.Tyyppi).Distinct().Count();
-
             return View();
+            //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa
         }
-
     }
 }
