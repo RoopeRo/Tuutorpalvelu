@@ -30,8 +30,11 @@ namespace WebApplication1.Controllers
         public IActionResult LisääHenkilö(Person person) //tuutorin tai asiakkaan lisääminen
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääkäyttäjä(person);
-            return RedirectToAction("HaeTutorinPalvelut", person);
+            da.Lisääkäyttäjä(person);
+            var q = da.haetuutorit();
+            ViewBag.People = q;
+            return View();
+            //return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -41,7 +44,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult LisääPalvelu(Palvelu palvelu, int tuutorid)
+        public IActionResult LisääPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
             da.lisääpalvelu(palvelu, tuutorid);
