@@ -21,8 +21,10 @@ namespace WebApplication1.Controllers
         public IActionResult HaePalvelut()
         {
             DataAccess haku = new DataAccess(_context);
-            var palvelut = haku.haepalvelut();
-            ViewBag.palvelut = palvelut;
+            var palvelut = from pe in _context.People
+                           join pa in _context.Palvelus on pe.PersonId equals pa.PalveluId
+                           select pe;
+            ViewBag.Palvelut = palvelut;
             return View();
         }
 
@@ -30,6 +32,11 @@ namespace WebApplication1.Controllers
         public IActionResult HaeDetails()
         {
             //detailsien näyttämien
+            return View();
+        }
+        [HttpPost]
+        public IActionResult HaePalvelutFiltteri()
+        {
             return View();
         }
     }

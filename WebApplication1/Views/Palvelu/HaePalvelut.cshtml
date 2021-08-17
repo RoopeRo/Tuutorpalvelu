@@ -1,7 +1,31 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
+﻿@model WebApplication1.Models.Palvelu
 
-<p>Testi 2</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nimi)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Pvm)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Kesto)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Hinta)</th>
+            <th scope="col">Tutor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var palvelu in ViewBag.Palvelut)
+        {
+        <tr>
+            <td>@palvelu.PalveluId</td>
+            <td>@palvelu.Nimi</td>
+            <td>@palvelu.Ryhmä</td>
+            <td>@palvelu.Tyyppi</td>
+            <td>@palvelu.Pvm</td>
+            <td>@palvelu.Kesto</td>
+            <td>@palvelu.Hinta</td>
+            <td>@($"{palvelu.Etunimi} {palvelu.Sukunimi}")</td>
+        </tr>
+        }
+    </tbody>
+</table>
