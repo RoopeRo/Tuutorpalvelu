@@ -23,7 +23,7 @@ namespace WebApplication1
 
         public List<Person> haetuutorit()
         {
-            var lista = db.People.Where(p => p.Tutor == true);
+            var lista = db.People.Where(p => p.Tutor == true).ToList();
 
             return (List<Person>)lista;
         }

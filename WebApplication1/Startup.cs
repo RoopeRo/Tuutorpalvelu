@@ -26,7 +26,7 @@ namespace WebApplication1
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<TutorpalveluDBContext>(options =>
-                   options.UseSqlServer(Configuration.GetConnectionString("tietokanta")));
+                   options.UseSqlServer(Configuration.GetConnectionString("azure")));
             services.AddControllersWithViews();
         }
 

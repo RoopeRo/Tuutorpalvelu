@@ -23,8 +23,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
-            DataAccess da = new DataAccess(_context);
-            var henkilö = da.haetuutorit();
+            
             return View();
         }
 
@@ -33,13 +32,7 @@ namespace WebApplication1.Controllers
         {
             DataAccess da = new DataAccess(_context);
             da.lisääkäyttäjä(person);
-            return RedirectToAction("NäytäPalvelut", person);
-        }
-
-        public IActionResult LisääKäyttäjä(Person person)
-        {
-            
-            return View();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]
