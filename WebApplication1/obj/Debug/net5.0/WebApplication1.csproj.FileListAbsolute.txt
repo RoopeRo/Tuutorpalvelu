@@ -282,12 +282,6 @@ C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\
 C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Shared\Error.cshtml.g.cs
 C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\EditoiPalvelua.cshtml.g.cs
-C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\EditoiTuutoria.cshtml.g.cs
-C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\HaeTutorinPalvelut.cshtml.g.cs
-C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\LisääPalvelu.cshtml.g.cs
-C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\PoistaPalvelu.cshtml.g.cs
-C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Tutor\PoistaTutor.cshtml.g.cs
 C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\_ViewImports.cshtml.g.cs
 C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\_ViewStart.cshtml.g.cs
 C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\WebApplication1.RazorTargetAssemblyInfo.cache
@@ -536,3 +530,9 @@ C:\Users\Roope Rouvali\Desktop\Koulutus\viikkoprogis\WebApplication1\obj\Debug\n
 C:\Users\Roope Rouvali\Desktop\Koulutus\viikkoprogis\WebApplication1\obj\Debug\net5.0\WebApplication1.pdb
 C:\Users\Roope Rouvali\Desktop\Koulutus\viikkoprogis\WebApplication1\obj\Debug\net5.0\WebApplication1.genruntimeconfig.cache
 C:\Users\Roope Rouvali\Desktop\Koulutus\viikkoprogis\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\LisääPalvelu.cshtml.g.cs
+C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\EditoiPalvelua.cshtml.g.cs
+C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\EditoiTuutoria.cshtml.g.cs
+C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\HaeTutorinPalvelut.cshtml.g.cs
+C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\LisääPalvelu.cshtml.g.cs
+C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\PoistaPalvelu.cshtml.g.cs
+C:\work\v8\Miniprojekti\MiniprojektiVol2\WebApplication1\obj\Debug\net5.0\Razor\Views\Henkilö\PoistaTutor.cshtml.g.cs

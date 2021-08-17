@@ -71,7 +71,45 @@ namespace WebApplication1
             }
             return false;
         }
+        public void EditoiPalvelua(Palvelu palvelu)
+        {
+            var muokattava = db.Palvelus.Find(palvelu.PalveluId);
+            muokattava.Hinta = palvelu.Hinta;
+            muokattava.Nimi = palvelu.Nimi;
+            muokattava.Kesto = palvelu.Kesto;
+            muokattava.Pvm = palvelu.Pvm;
+            muokattava.Ryhmä = palvelu.Ryhmä;
+            muokattava.Sijainti = palvelu.Sijainti;
+            muokattava.TutorId = palvelu.TutorId;
+            muokattava.Tyyppi = palvelu.Tyyppi;
+            muokattava.Varattu = palvelu.Varattu;
+        }
 
+        public void EditoiHenkilöä(Person henkilö)
+        {
+            var muokattava = db.People.Find(henkilö.PersonId);
+            muokattava.Osoite = henkilö.Osoite;
+            muokattava.Etunimi = henkilö.Etunimi;
+            muokattava.Email = henkilö.Email;
+            muokattava.Sukunimi = henkilö.Sukunimi;
+            muokattava.Postinumero = henkilö.Postinumero;
+            muokattava.Postitoimipaikka = henkilö.Postitoimipaikka;
+            muokattava.PuhNro = henkilö.PuhNro;
+            muokattava.Tutor = henkilö.Tutor;
+             
+        }
+        public void PoistaPalvelu(Palvelu palvelu)
+        {
+            var poistettava = db.Palvelus.Find(palvelu.PalveluId);
+            db.Remove(poistettava);
+            db.SaveChanges();
+        }
+        public void PoistaHenkilö(Person henkilö)
+        {
+            var poistettava = db.People.Find(henkilö.PersonId);
+            db.Remove(poistettava);
+            db.SaveChanges();
+        }
 
     }
 }
