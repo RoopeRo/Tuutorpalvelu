@@ -4,7 +4,7 @@
     ViewData["Title"] = "EditoiPalvelua";
 }
 
-<h1>EditoiPalvelua</h1>
+<h1>Editoi palvelua</h1>
 
 <h4>Palvelu</h4>
 <hr />
@@ -21,10 +21,10 @@
             <div class="form-group">
                 <label asp-for="Tyyppi" class="control-label"></label>
                 <select asp-for="Tyyppi" class="form-control">
-                    <option value="volvo">Volvo</option>
-                    <option value="saab">Saab</option>
-                    <option value="fiat">Fiat</option>
-                    <option value="audi">Audi</option>
+                    <option value="Kotitalostaidot">Kotitaloustaidot</option>
+                    <option value="Liikunta">Liikunta</option>
+                    <option value="Business">Business</option>
+                    <option value="Käsityöt">Käsityöt</option>
                 </select>
                 <span asp-validation-for="Tyyppi" class="text-danger"></span>
             </div>
@@ -35,7 +35,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Hinta" class="control-label"></label>
-                <input asp-for="Hinta" class="form-control" />
+                <input type="text" name="Hinta" value="@Model.Hinta" class="form-control" />
                 <span asp-validation-for="Hinta" class="text-danger"></span>
             </div>
             <div class="form-group">

@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 using WebApplication1.Models;
@@ -27,7 +28,12 @@ namespace WebApplication1
 
             return (List<Person>)lista;
         }
+        public List<Person> HaeHenkilöt() //hakee henkilöistä
+        {
+            var lista = db.People.Where(p => p.PersonId != 0).ToList();
 
+            return (List<Person>)lista;
+        }
         public List<Palvelu> haetuutorinpalvelut(int tunniste) //valitse yhden tuutorin monesta samannimisestä tuutorista
         {
             var lista = db.Palvelus.Where(p => p.TutorId == tunniste).ToList();
@@ -50,9 +56,10 @@ namespace WebApplication1
             db.SaveChanges();
         }
 
-        public void lisääpalvelu(Palvelu palvelu)
+        public void lisääpalvelu(Palvelu palvelu, int? id)
         {
-            var tuutori = db.People.Find(palvelu.TutorId);
+            
+            var tuutori = db.People.Find(id);
 
             tuutori.Palvelus.Add(palvelu);
             db.People.Update(tuutori);
@@ -70,7 +77,15 @@ namespace WebApplication1
 
         public Person HaeTutor(int? id)
         {
-            return haetuutorit().Where(t => t.PersonId == id).FirstOrDefault();
+
+            return haetuutorit().Where(t => t.PersonId == id).ToList().FirstOrDefault();
+            
+        }
+        public Person HaeKäyttäjä(int? id)
+        {
+
+            return HaeHenkilöt().Where(t => t.PersonId == id).ToList().FirstOrDefault();
+
         }
         public void EditoiPalvelua(Palvelu palvelu)
         {
@@ -82,7 +97,7 @@ namespace WebApplication1
             muokattava.Pvm = palvelu.Pvm;
             muokattava.Ryhmä = palvelu.Ryhmä;
             muokattava.Sijainti = palvelu.Sijainti;
-            muokattava.TutorId = palvelu.TutorId;
+            //muokattava.TutorId = palvelu.TutorId;
             muokattava.Tyyppi = palvelu.Tyyppi;
             muokattava.Varattu = palvelu.Varattu;
             db.SaveChanges();
@@ -91,7 +106,7 @@ namespace WebApplication1
         public void EditoiHenkilöä(Person henkilö)
         {
             var muokattava = db.People.Find(henkilö.PersonId);
-            muokattava.PersonId = henkilö.PersonId;
+            //muokattava.PersonId = henkilö.PersonId;
             muokattava.Osoite = henkilö.Osoite;
             muokattava.Etunimi = henkilö.Etunimi;
             muokattava.Email = henkilö.Email;
