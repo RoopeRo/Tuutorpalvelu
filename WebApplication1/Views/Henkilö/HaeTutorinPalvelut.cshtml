@@ -9,10 +9,13 @@
     
     <p>Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta. </p>
 
-    <br />
-    <h2>Tarjoamasi Palvelut:</h2>
-    <p>
+<br />
+<h2>Tarjoamasi Palvelut:</h2>
 
+
+@model IEnumerable<WebApplication1.Models.Palvelu>
+    
+    <p>
         <a asp-action="Create">Lisää uusi palvelu</a>
     </p>
     <table class="table">
@@ -68,8 +71,7 @@
                     <td>
                         @item.Sijainti
                     </td>
-
-                   <td>
+                            <td>
                     @Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new {palveluid = item.PalveluId }) |
                     @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
                     <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId">Poista</a>
@@ -82,3 +84,4 @@
 @if (ViewBag.ID==null) { 
     <h5>Käyttäjää ei löydetty.</h5>
 }
+                 

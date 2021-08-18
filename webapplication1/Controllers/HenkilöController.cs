@@ -141,6 +141,10 @@ namespace WebApplication1.Controllers
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
+        /// <summary>
+        /// Hakee tuutorin tarjoamat palvelut
+        /// </summary>
+        /// <returns>haeTutorinpalvelut näkymä</returns>
         [HttpGet]
         public IActionResult HaeTutorinPalvelut()
         {

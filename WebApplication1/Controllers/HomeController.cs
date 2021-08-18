@@ -35,6 +35,13 @@ namespace WebApplication1.Controllers
             //}
             return View();
         }
+
+        /// <summary>
+        /// Palauttaa kirjautumisnäkymän
+        /// </summary>
+        /// <param name="username">käyttäjän syöttämä käyttäjänimi</param>
+        /// <param name="password">käyttäjän syöttämä salasana</param>
+        /// <returns>kirjautumisnäkymä</returns>
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
