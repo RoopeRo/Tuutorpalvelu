@@ -5,6 +5,10 @@
 }
 
 <h1>Rekisteröidy käyttäjäksi</h1>
+@if(ViewBag.Epäonnistui)
+            {
+                <h2 style="color: red">Käyttäjätunnus varattu, yritä uudelleen!</h2>
+            }
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -70,7 +74,7 @@
 <div>
     @Html.ActionLink("Paluu etusivulle", "Index", "Home")
 </div>
-<div>
+@*<div>
     @if (ViewBag.People != null)
     {
 
@@ -82,7 +86,7 @@
         }
     }
 
-</div>
+</div>*@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

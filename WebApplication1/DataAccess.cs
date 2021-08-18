@@ -67,7 +67,8 @@ namespace WebApplication1
             }
             return false;
         }
-        public Person HaeTutor(int id)
+
+        public Person HaeTutor(int? id)
         {
             return haetuutorit().Where(t => t.PersonId == id).FirstOrDefault();
         }
