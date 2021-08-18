@@ -111,10 +111,9 @@ namespace WebApplication1.Controllers
         }
 
         [HttpDelete(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
-        public IActionResult PoistaPalvelu(int id)
+        public IActionResult PoistaPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
-            var palvelu = da.haepalvelut().Where(p => p.PalveluId == id).FirstOrDefault();
             da.PoistaPalvelu(palvelu);
             return RedirectToAction("HaeTutorinPalvelut");
         }
