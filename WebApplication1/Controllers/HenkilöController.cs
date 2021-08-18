@@ -64,7 +64,7 @@ namespace WebApplication1.Controllers
             var id = HttpContext.Session.GetInt32("id");
             if (id !=null)
             {
-                var henkilö = new DataAccess(_context).HaeTutor(id);
+                var henkilö = new DataAccess(_context).HaeKäyttäjä(id);
                 return View(henkilö);
             } else {
                 return RedirectToAction("Virhe", "Home");
@@ -76,7 +76,7 @@ namespace WebApplication1.Controllers
         public IActionResult EditoiHenkilöä()//siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         {
             var id = HttpContext.Session.GetInt32("id");
-            var henkilö = new DataAccess(_context).HaeTutor(id);
+            var henkilö = new DataAccess(_context).HaeKäyttäjä(id);
             return View(henkilö);
         }
 
@@ -120,7 +120,8 @@ namespace WebApplication1.Controllers
         public IActionResult LisääPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
-            da.lisääpalvelu(palvelu);
+            var id = HttpContext.Session.GetInt32("id");
+            da.lisääpalvelu(palvelu, id);
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
@@ -128,7 +129,7 @@ namespace WebApplication1.Controllers
         public IActionResult EditoiPalvelua(int palveluid)
         {
             DataAccess da = new DataAccess(_context);
-            var muokattavapalvelu = da.haetuutorinpalvelut(palveluid).FirstOrDefault();
+            var muokattavapalvelu = da.haepalvelut().Where(p => p.PalveluId == palveluid).ToList().FirstOrDefault();
             return View(muokattavapalvelu);
         }
 
@@ -140,7 +141,7 @@ namespace WebApplication1.Controllers
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
-        [HttpDelete(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
+        [HttpGet(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
         public IActionResult PoistaPalvelu(int id)
         {
             DataAccess da = new DataAccess(_context);
