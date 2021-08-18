@@ -63,20 +63,7 @@ namespace WebApplication1
             db.SaveChanges();
 
         }
-        public bool TarkistaKäyttäjänAuth(string username, string password)
-        {
-            if (db.People.Where(k => k.Username == username).FirstOrDefault() != null && db.People.Where(k => k.Username == username).FirstOrDefault().Password == password)
-            {
-                return true;
-            }
-            return false;
-        }
-
-        public Person HaeKirjautumistietojaVastaavaHenkilö(string username, string password)
-        {
-            var person = db.People.Where(k => k.Username == username && k.Password ==password).FirstOrDefault();
-            return person;
-        }
+    
 
         public void EditoiPalvelua(Palvelu palvelu)
         {
