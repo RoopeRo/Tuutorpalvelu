@@ -17,10 +17,10 @@ namespace WebApplication1.Controllers
     {
         //private readonly UserManager<Person> _userManager;
         private readonly TutorpalveluDBContext _context;
-        public HenkilöController(TutorpalveluDBContext context/*, UserManager<Person> userManager*/)
+        public HenkilöController(TutorpalveluDBContext context)
         {
             _context = context;
-            //_userManager = userManager;
+            
         }
 
         [HttpGet]
@@ -88,9 +88,6 @@ namespace WebApplication1.Controllers
             if (id != null)
             {
                 var palvelut = haku.haetuutorinpalvelut((int)id);
-                //var palvelut = haku.haetuutorinpalvelut(tunniste);
-                //var id = _userManager.GetUserId(HttpContext.User);
-                
                 ViewBag.palvelut = palvelut.OrderBy(p => p.Tyyppi);
                 ViewBag.PalveluidenMäärä = palvelut.Count();
                 ViewBag.EriTyyppienMäärä =
