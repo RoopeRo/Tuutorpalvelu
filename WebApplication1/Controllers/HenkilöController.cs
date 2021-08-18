@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -12,12 +13,13 @@ using WebApplication1.Models;
 namespace WebApplication1.Controllers
 {
     public class HenkilöController : Controller
-
     {
+        private readonly UserManager<Person> _userManager;
         private readonly TutorpalveluDBContext _context;
-        public HenkilöController(TutorpalveluDBContext context)
+        public HenkilöController(TutorpalveluDBContext context, UserManager<Person> userManager)
         {
             _context = context;
+            _userManager = userManager;
         }
 
         [HttpGet]
@@ -81,12 +83,15 @@ namespace WebApplication1.Controllers
         {
             DataAccess haku = new DataAccess(_context);
             var palvelut = haku.haetuutorinpalvelut(tunniste);
+            var id = _userManager.GetUserId(HttpContext.User);
+            ViewBag.ID = id;
             ViewBag.palvelut = palvelut.OrderBy(p => p.Tyyppi);
             ViewBag.PalveluidenMäärä = palvelut.Count();
             ViewBag.EriTyyppienMäärä =
                 (from p in palvelut
                  where p.TutorId == tunniste
                  select p.Tyyppi).Distinct().Count();
+        
             return View();
             //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa kun käyttäjä ohjataan tähän actioon/sivulle
         }
