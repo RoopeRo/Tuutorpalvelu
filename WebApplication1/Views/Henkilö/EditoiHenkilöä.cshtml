@@ -4,9 +4,8 @@
     ViewData["Title"] = "EditoiHenkilöä";
 }
 
-<h1>EditoiHenkilöä</h1>
+<h1>Muokkaa tietoja</h1>
 
-<h4>Person</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -20,7 +19,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Password" class="control-label"></label>
-                <input asp-for="Password" class="form-control" />
+                <input type="password" name="Password" value=@Model.Password class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -71,7 +70,7 @@
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    @Html.ActionLink("Palaa omiin tietoihin", "OmatTiedot", "Henkilö", new {Id = Model.PersonId })
 </div>
 
 @section Scripts {

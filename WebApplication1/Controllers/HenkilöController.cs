@@ -61,7 +61,14 @@ namespace WebApplication1.Controllers
         {
             DataAccess da = new DataAccess(_context);
             da.EditoiHenkilöä(henkilö);
-            return RedirectToAction("HaeTutorinPalvelut");
+            return RedirectToAction("OmatTiedot", new {Id = henkilö.PersonId });
+        }
+        public IActionResult PoistaHenkilö(int Id)
+        {
+            DataAccess da = new DataAccess(_context);
+            var henkilö = da.HaeTutor(Id);
+            da.PoistaHenkilö(henkilö);
+            return RedirectToAction("Index", "Home");
         }
 
         /// <summary>
