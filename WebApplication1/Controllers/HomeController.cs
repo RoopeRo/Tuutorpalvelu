@@ -54,12 +54,13 @@ namespace WebApplication1.Controllers
                 HttpContext.Session.SetString("nimi", käyttäjä.Etunimi);
                 //RedirectToAction("Testi", "Muutos");
                 ViewBag.AuthOK = true;
+                return RedirectToAction("Index", "Henkilö");
             }
             else
             {
                 ViewBag.AuthOK = false;
+                return View();
             }
-            return RedirectToAction("Index", "Henkilö");
         }
 
         public IActionResult Privacy()
