@@ -1,0 +1,91 @@
+﻿<h2>@ViewBag.Vuosi</h2>
+<hr />
+<h3>
+    @Html.ActionLink("<<", "Kalenteri", new { vuosi = (ViewBag.Kuukausi.ToString() == "Tammikuu" ? ViewBag.Vuosi - 1 : ViewBag.Vuosi), kuukausi = (ViewBag.Kuukausi.ToString() == "Tammikuu" ? 12 : ViewBag.KNro - 1) })
+    @ViewBag.Kuukausi
+    @Html.ActionLink(">>", "Kalenteri", new { vuosi = (ViewBag.Kuukausi.ToString() == "Joulukuu" ? ViewBag.Vuosi + 1 : ViewBag.Vuosi), kuukausi = (ViewBag.Kuukausi.ToString() == "Joulukuu" ? 1 : ViewBag.KNro + 1) })
+</h3>
+
+<table>
+    <tr>
+        <th>
+            MA
+        </th>
+        <th>
+            TI
+        </th>
+        <th>
+            KE
+        </th>
+        <th>
+            TO
+        </th>
+        <th>
+            PE
+        </th>
+        <th>
+            LA
+        </th>
+        <th style="color: red">
+            SU
+        </th>
+    </tr>
+    <tr>
+
+        @for (var i = 1; i <= 7; i++)
+        {
+            @if (i >= ViewBag.EnsimmainenPaiva)
+            {
+                if (i == 7)
+                {
+                    <td>
+                        <p style="color:red">@(i-ViewBag.EnsimmainenPaiva+1)</p>
+                    </td>
+                }
+                else
+                {
+                    <td>
+                        @(i-ViewBag.EnsimmainenPaiva+1)
+                    </td>
+                }
+            }
+            else
+            {
+                <td>
+                </td>
+            }
+        }
+    </tr>
+
+    @for (var i = 9 - ViewBag.EnsimmainenPaiva; i <= ViewBag.PaivienLKM;)
+    {
+        <tr>
+            @for (var j = 0; j < 7; j++, i++)
+            {
+                @if (i > ViewBag.PaivienLKM)
+                {
+                    <td>
+                    </td>
+                }
+                else
+                {
+                    if (j == 6)
+                    {
+                        <td>
+                            <p style="color:red">@i</p>
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @i
+                        </td>
+                    }
+
+                }
+
+
+            }
+        </tr>
+    }
+</table>

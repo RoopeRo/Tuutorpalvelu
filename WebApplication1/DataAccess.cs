@@ -67,6 +67,11 @@ namespace WebApplication1
             }
             return false;
         }
+
+        public Person HaeTutor(int id)
+        {
+            return haetuutorit().Where(t => t.PersonId == id).FirstOrDefault();
+        }
         public void EditoiPalvelua(Palvelu palvelu)
         {
             var muokattava = db.Palvelus.Find(palvelu.PalveluId);
@@ -94,6 +99,7 @@ namespace WebApplication1
             muokattava.PuhNro = henkilö.PuhNro;
             muokattava.Tutor = henkilö.Tutor;
             db.SaveChanges();
+
         }
         public void PoistaPalvelu(Palvelu palvelu)
         {

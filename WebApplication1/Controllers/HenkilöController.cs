@@ -38,9 +38,41 @@ namespace WebApplication1.Controllers
             da.Lisääkäyttäjä(person);
             var q = da.haetuutorit();
             ViewBag.People = q;
-            return View();
-            //return RedirectToAction("Index", "Home");
+            //return View();
+            return RedirectToAction("HaePalvelut", "Palvelu");
         }
+
+        [HttpGet]
+        public IActionResult OmatTiedot(int Id)
+        {
+            var henkilö = new DataAccess(_context).HaeTutor(Id);
+            return View(henkilö);
+        }
+
+        [HttpGet]
+        public IActionResult EditoiHenkilöä(int Id)
+        {
+            var henkilö = new DataAccess(_context).HaeTutor(Id);
+            return View(henkilö);
+        }
+        [HttpPost]
+        public IActionResult EditoiHenkilöä(Person henkilö)
+        {
+            DataAccess da = new DataAccess(_context);
+            da.EditoiHenkilöä(henkilö);
+            return RedirectToAction("");
+        }
+
+        //[HttpPost]
+        //public IActionResult EditoiHenkilöä(Person person) //tuutorin tai asiakkaan lisääminen
+        //{
+        //    DataAccess da = new DataAccess(_context);
+        //    da.Lisääkäyttäjä(person);
+        //    var q = da.haetuutorit();
+        //    ViewBag.People = q;
+        //    //return View();
+        //    return RedirectToAction("HaePalvelut", "Palvelu");
+        //}
 
         [HttpGet(Name = "HaeMuokattavaHenkilö")] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         public IActionResult EditoiHenkilöä(int personid)

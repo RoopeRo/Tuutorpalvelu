@@ -32,7 +32,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult HaeDetails()
+        public IActionResult HaeDetails(Palvelu p)
         {
             //detailsien näyttämien
             return View();
@@ -42,5 +42,6 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+
     }
 }

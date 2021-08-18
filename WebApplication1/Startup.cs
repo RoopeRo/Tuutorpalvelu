@@ -28,6 +28,7 @@ namespace WebApplication1
             services.AddDbContext<TutorpalveluDBContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString("azure")));
             services.AddControllersWithViews();
+            services.AddSession();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
