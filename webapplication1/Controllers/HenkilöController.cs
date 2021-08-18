@@ -23,6 +23,12 @@ namespace WebApplication1.Controllers
             
         }
 
+        [HttpGet]
+        public IActionResult Index()
+        {
+            return View();
+        }
+
         /// <summary>
         /// HENKILÖ CRUD: GET, POST (put)
         /// </summary>
@@ -35,7 +41,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpPost]
-        public IActionResult LisääHenkilö(Person person) //tuutorin tai asiakkaan lisääminen
+        public IActionResult LisääHenkilö(Person person) //tuutorin tai asiakkaan lisääminen AKA REKISTÖRÖITYMINEN
         {
             DataAccess da = new DataAccess(_context);
             da.Lisääkäyttäjä(person);
@@ -46,22 +52,24 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult OmatTiedot(int? Id)
+        public IActionResult OmatTiedot()
         {
-            if (Id !=null)
+            var id = HttpContext.Session.GetInt32("id");
+            if (id !=null)
             {
-                var henkilö = new DataAccess(_context).HaeTutor(Id);
+                var henkilö = new DataAccess(_context).HaeTutor(id);
                 return View(henkilö);
             } else {
-                return Content("Virhe, tarkista oletko kirjautunut");
+                return RedirectToAction("Virhe", "Home");
             }
            
         }
 
         [HttpGet]
-        public IActionResult EditoiHenkilöä(int Id)//siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
+        public IActionResult EditoiHenkilöä()//siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         {
-            var henkilö = new DataAccess(_context).HaeTutor(Id);
+            var id = HttpContext.Session.GetInt32("id");
+            var henkilö = new DataAccess(_context).HaeTutor(id);
             return View(henkilö);
         }
 
@@ -77,6 +85,7 @@ namespace WebApplication1.Controllers
             DataAccess da = new DataAccess(_context);
             var henkilö = da.HaeTutor(Id);
             da.PoistaHenkilö(henkilö);
+            HttpContext.Session.Clear();
             return RedirectToAction("Index", "Home");
         }
 
@@ -87,15 +96,16 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult LisääPalvelu(int? Id) //tarkista onko sessionissa id menossa, laita tähän ja tee ehtolause
+        public IActionResult LisääPalvelu() //tarkista onko sessionissa id menossa, laita tähän ja tee ehtolause
         {
-            if (Id != null)
+            var id = HttpContext.Session.GetInt32("id");
+            if (id != null)
             {
                  return View();
             }
             else
             {
-                return Content("Virhe, tarkista oletko kirjautunut");
+                return RedirectToAction("Virhe", "Home");
             }
         }
 
@@ -147,9 +157,9 @@ namespace WebApplication1.Controllers
                      where p.TutorId == id
                      select p.Tyyppi).Distinct().Count();
                 ViewBag.Nimi = HttpContext.Session.GetString("nimi");
+            } else {
+                return RedirectToAction("Virhe", "Home");
             }
-            
-        
             return View();
             //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa kun käyttäjä ohjataan tähän actioon/sivulle
             //lisäksi lisää ehtolause, joka tarkistaa onko sessionin kuljettama id null vai int, jos id on null > ohjaa virhesivuille
