@@ -84,9 +84,16 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult LisääPalvelu()
+        public IActionResult LisääPalvelu(int? Id) //tarkista onko sessionissa id menossa, laita tähän ja tee ehtolause
         {
-            return View();
+            if (Id != null)
+            {
+                 return View();
+            }
+            else
+            {
+                return Content("Virhe, tarkista oletko kirjautunut");
+            }
         }
 
         [HttpPost]
@@ -134,6 +141,7 @@ namespace WebApplication1.Controllers
                  select p.Tyyppi).Distinct().Count();
             return View();
             //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa kun käyttäjä ohjataan tähän actioon/sivulle
+            //lisäksi lisää ehtolause, joka tarkistaa onko sessionin kuljettama id null vai int, jos id on null > ohjaa virhesivuille
         }
     }
 }
