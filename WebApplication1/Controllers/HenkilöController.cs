@@ -133,6 +133,7 @@ namespace WebApplication1.Controllers
                     (from p in palvelut
                      where p.TutorId == id
                      select p.Tyyppi).Distinct().Count();
+                ViewBag.Nimi = HttpContext.Session.GetString("nimi");
             }
             
         

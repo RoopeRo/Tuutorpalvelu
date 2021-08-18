@@ -5,25 +5,12 @@
 @if (ViewBag.ID != null)
 {
 
-    <h1>Omat palvelut</h1>
-    <h2>id: @ViewBag.ID</h2>
+    <h1>Tuutorin @ViewBag.nimi omat palvelut</h1>
+    
     <p>Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta. </p>
 
     <br />
     <h2>Tarjoamasi Palvelut:</h2>
-    @*<div>
-            <ul>
-                @foreach (var palvelu in ViewBag.OP)
-                {
-                    <li>@palvelu.Nimi</li>
-                }
-            </ul>
-        </div>*@
-
-    @*@model IEnumerable<WebApplication1.Models.Palvelu>*@
-
-
-
     <p>
 
         <a asp-action="Create">Lisää uusi palvelu</a>
