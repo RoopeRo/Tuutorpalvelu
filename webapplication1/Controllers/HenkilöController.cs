@@ -31,6 +31,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
+            ViewBag.Epäonnistui = false;
             return View();
         }
 
@@ -38,11 +39,18 @@ namespace WebApplication1.Controllers
         public IActionResult LisääHenkilö(Person person) //tuutorin tai asiakkaan lisääminen
         {
             DataAccess da = new DataAccess(_context);
-            da.Lisääkäyttäjä(person);
-            var q = da.haetuutorit();
-            ViewBag.People = q;
-            //return View();
-            return RedirectToAction("HaePalvelut", "Palvelu");
+            try
+            {
+                da.Lisääkäyttäjä(person);
+                //var q = da.haetuutorit();
+                //ViewBag.People = q;
+                return RedirectToAction("Index", "Home");
+            }
+            catch (Exception)
+            {
+                ViewBag.Epäonnistui = true;
+                return View();
+            }
         }
 
         [HttpGet]
@@ -111,9 +119,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpDelete(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
-        public IActionResult PoistaPalvelu(Palvelu palvelu)
+        public IActionResult PoistaPalvelu(int id)
         {
             DataAccess da = new DataAccess(_context);
+            var palvelu = da.haepalvelut().Where(p => p.PalveluId == id).FirstOrDefault();
             da.PoistaPalvelu(palvelu);
             return RedirectToAction("HaeTutorinPalvelut");
         }
