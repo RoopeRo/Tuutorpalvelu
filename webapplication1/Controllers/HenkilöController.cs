@@ -25,6 +25,7 @@ namespace WebApplication1.Controllers
         [HttpGet]
         public IActionResult Index()
         {
+            ViewBag.Nimi = HttpContext.Session.GetString("nimi");
             return View();
         }
 
