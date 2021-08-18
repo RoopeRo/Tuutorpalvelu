@@ -27,12 +27,12 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            DataAccess da = new DataAccess(_context);
-            var palvelut = da.haepalvelut().Where(p => p.TutorId == null).ToList();
-            foreach(var pal in palvelut)
-            {
-                da.PoistaPalvelu(pal);
-            }
+            //DataAccess da = new DataAccess(_context);
+            //var palvelut = da.haepalvelut().Where(p => p.TutorId == null).ToList();
+            //foreach(var pal in palvelut)
+            //{
+            //    da.PoistaPalvelu(pal);
+            //}
             return View();
         }
         [HttpPost]
@@ -52,8 +52,7 @@ namespace WebApplication1.Controllers
             {
                 ViewBag.AuthOK = false;
             }
-            
-            return View();
+            return RedirectToAction("Index", "Henkilö");
         }
 
         public IActionResult Privacy()
