@@ -35,7 +35,7 @@ namespace WebApplication1
             return (List<Palvelu>)lista;
         }
 
-        public List<Person> haepalvelutuutorit(int palvelutunniste) //palveluita palvelutunnisteen perusteella
+        public List<Person> haepalvelutuutorit(int? palvelutunniste) //palveluita palvelutunnisteen perusteella
         {
             var peeple = db.People.Include(p => p.Palvelus).ToList();
 

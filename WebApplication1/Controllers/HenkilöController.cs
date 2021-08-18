@@ -80,20 +80,25 @@ namespace WebApplication1.Controllers
         //}
 
         [HttpGet]
-        public IActionResult HaeTutorinPalvelut(int tunniste)
+        public IActionResult HaeTutorinPalvelut()
         {
             DataAccess haku = new DataAccess(_context);
-            var id = HttpContext.Session.GetInt32("personID");
-            //var palvelut = haku.haetuutorinpalvelut(id);
-            var palvelut = haku.haetuutorinpalvelut(tunniste);
-            //var id = _userManager.GetUserId(HttpContext.User);
+            var id = HttpContext.Session.GetInt32("id");
             ViewBag.ID = id;
-            ViewBag.palvelut = palvelut.OrderBy(p => p.Tyyppi);
-            ViewBag.PalveluidenMäärä = palvelut.Count();
-            ViewBag.EriTyyppienMäärä =
-                (from p in palvelut
-                 where p.TutorId == tunniste
-                 select p.Tyyppi).Distinct().Count();
+            if (id != null)
+            {
+                var palvelut = haku.haetuutorinpalvelut((int)id);
+                //var palvelut = haku.haetuutorinpalvelut(tunniste);
+                //var id = _userManager.GetUserId(HttpContext.User);
+                
+                ViewBag.palvelut = palvelut.OrderBy(p => p.Tyyppi);
+                ViewBag.PalveluidenMäärä = palvelut.Count();
+                ViewBag.EriTyyppienMäärä =
+                    (from p in palvelut
+                     where p.TutorId == id
+                     select p.Tyyppi).Distinct().Count();
+            }
+            
         
             return View();
             //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa kun käyttäjä ohjataan tähän actioon/sivulle
