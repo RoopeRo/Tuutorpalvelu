@@ -71,6 +71,13 @@ namespace WebApplication1
             }
             return false;
         }
+
+        public Person HaeKirjautumistietojaVastaavaHenkilö(string username, string password)
+        {
+            var person = db.People.Where(k => k.Username == username && k.Password ==password).FirstOrDefault();
+            return person;
+        }
+
         public void EditoiPalvelua(Palvelu palvelu)
         {
             var muokattava = db.Palvelus.Find(palvelu.PalveluId);

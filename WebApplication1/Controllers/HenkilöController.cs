@@ -9,17 +9,18 @@ using System.Net.Http.Headers;
 using System.Text;
 using System.Threading.Tasks;
 using WebApplication1.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace WebApplication1.Controllers
 {
     public class HenkilöController : Controller
     {
-        private readonly UserManager<Person> _userManager;
+        //private readonly UserManager<Person> _userManager;
         private readonly TutorpalveluDBContext _context;
-        public HenkilöController(TutorpalveluDBContext context, UserManager<Person> userManager)
+        public HenkilöController(TutorpalveluDBContext context/*, UserManager<Person> userManager*/)
         {
             _context = context;
-            _userManager = userManager;
+            //_userManager = userManager;
         }
 
         [HttpGet]
@@ -82,8 +83,10 @@ namespace WebApplication1.Controllers
         public IActionResult HaeTutorinPalvelut(int tunniste)
         {
             DataAccess haku = new DataAccess(_context);
+            var id = HttpContext.Session.GetInt32("personID");
+            //var palvelut = haku.haetuutorinpalvelut(id);
             var palvelut = haku.haetuutorinpalvelut(tunniste);
-            var id = _userManager.GetUserId(HttpContext.User);
+            //var id = _userManager.GetUserId(HttpContext.User);
             ViewBag.ID = id;
             ViewBag.palvelut = palvelut.OrderBy(p => p.Tyyppi);
             ViewBag.PalveluidenMäärä = palvelut.Count();

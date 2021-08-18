@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -32,9 +33,12 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult Index(string username, string password)
         {
-            bool AuthOK = new DataAccess(_context).TarkistaKäyttäjänAuth(username, password);
+            
+            //bool AuthOK = new DataAccess(_context).TarkistaKäyttäjänAuth(username, password);
+            
             if (AuthOK)
             {
+                HttpContext.Session.SetInt32("personId", )
                 RedirectToAction("Testi", "Muutos");
             }
             ViewBag.AuthOK = false;
