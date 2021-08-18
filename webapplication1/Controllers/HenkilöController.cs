@@ -15,7 +15,6 @@ namespace WebApplication1.Controllers
 {
     public class HenkilöController : Controller
     {
-        //private readonly UserManager<Person> _userManager;
         private readonly TutorpalveluDBContext _context;
         public HenkilöController(TutorpalveluDBContext context)
         {
