@@ -11,18 +11,11 @@
 
 <br />
 <h2>Tarjoamasi Palvelut:</h2>
-<div>
-        <ul>
-            @foreach (var palvelu in ViewBag.palvelut)
-            {
-                <li>@palvelu.Nimi</li>
-            }
-        </ul>
-    </div>
+
 
 @model IEnumerable<WebApplication1.Models.Palvelu>
     
-
+    <p>
         <a asp-action="Create">Lisää uusi palvelu</a>
     </p>
     <table class="table">
