@@ -20,7 +20,7 @@
             {
         <tr>
             <td>@pal.PalveluId</td>
-            <td>@Html.ActionLink($"{pal.Nimi}", "HaeDetails", "Palvelu")</td>
+            <td>@Html.ActionLink($"{pal.Nimi}", "HaeDetails", "Palvelu", new {id = pal.PalveluId })</td>
             <td>@pal.Ryhmä</td>
             <td>@pal.Tyyppi</td>
             <td>@pal.Pvm</td>

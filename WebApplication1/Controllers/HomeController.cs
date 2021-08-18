@@ -26,7 +26,12 @@ namespace WebApplication1.Controllers
 
         public IActionResult Index()
         {
-            
+            DataAccess da = new DataAccess(_context);
+            var palvelut = da.haepalvelut().Where(p => p.TutorId == null).ToList();
+            foreach(var pal in palvelut)
+            {
+                da.PoistaPalvelu(pal);
+            }
             return View();
         }
         [HttpPost]

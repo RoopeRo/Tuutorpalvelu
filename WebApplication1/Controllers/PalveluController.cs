@@ -32,9 +32,16 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult HaeDetails(Palvelu p)
+        public IActionResult HaeDetails(int id)
         {
-            //detailsien näyttämien
+            DataAccess DA = new DataAccess(_context);
+            var palvelut = DA.haepalvelut().Where(p => p.PalveluId == id);
+            foreach (var p in palvelut)
+            {
+                _context.Entry(p).Reference(r => r.Tutor).Load();
+            }
+
+            ViewBag.Palvelut = palvelut;
             return View();
         }
         [HttpPost]
