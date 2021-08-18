@@ -118,6 +118,10 @@ namespace WebApplication1.Controllers
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
+        /// <summary>
+        /// Hakee tuutorin tarjoamat palvelut
+        /// </summary>
+        /// <returns>haeTutorinpalvelut näkymä</returns>
         [HttpGet]
         public IActionResult HaeTutorinPalvelut()
         {
@@ -135,10 +139,7 @@ namespace WebApplication1.Controllers
                      select p.Tyyppi).Distinct().Count();
                 ViewBag.Nimi = HttpContext.Session.GetString("nimi");
             }
-            
-        
             return View();
-            //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa kun käyttäjä ohjataan tähän actioon/sivulle
         }
     }
 }
