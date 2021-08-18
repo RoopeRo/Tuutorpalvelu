@@ -34,7 +34,7 @@ namespace WebApplication1
             return (List<Palvelu>)lista;
         }
 
-        public List<Person> haepalvelutuutorit(int palvelutunniste) //palveluita palvelutunnisteen perusteella
+        public List<Person> haepalvelutuutorit(int palvelutunniste) //palveluita palvelutunnisteen perusteella, palauttaa palveluita tarjoavat tuutorit
         {
             var peeple = db.People.Include(p => p.Palvelus).ToList();
             var peple = (from p in peeple
@@ -79,6 +79,7 @@ namespace WebApplication1
             muokattava.TutorId = palvelu.TutorId;
             muokattava.Tyyppi = palvelu.Tyyppi;
             muokattava.Varattu = palvelu.Varattu;
+            db.SaveChanges();
         }
 
         public void EditoiHenkilöä(Person henkilö)
@@ -92,7 +93,7 @@ namespace WebApplication1
             muokattava.Postitoimipaikka = henkilö.Postitoimipaikka;
             muokattava.PuhNro = henkilö.PuhNro;
             muokattava.Tutor = henkilö.Tutor;
-             
+            db.SaveChanges();
         }
         public void PoistaPalvelu(Palvelu palvelu)
         {

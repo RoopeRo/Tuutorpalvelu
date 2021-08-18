@@ -20,6 +20,11 @@ namespace WebApplication1.Controllers
             _context = context;
         }
 
+        /// <summary>
+        /// HENKILÖ CRUD: GET, POST, PUT
+        /// </summary>
+        /// <returns></returns>
+
         [HttpGet]
         public IActionResult LisääHenkilö()
         {
@@ -37,6 +42,28 @@ namespace WebApplication1.Controllers
             //return RedirectToAction("Index", "Home");
         }
 
+        [HttpGet(Name = "HaeMuokattavaHenkilö")] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
+        public IActionResult EditoiHenkilöä(int personid)
+        {
+            DataAccess da = new DataAccess(_context);
+            var muokattavahenkilö = da.haetuutor(personid); //EditoiPalvelua metodi puuttuu DataAccess palikasta
+            return View(muokattavahenkilö);
+        }
+
+        [HttpPut(Name = "EditoiHenkilöä")] //muokataan palvelua ja lähetetään se
+        public IActionResult EditoiHenkilöä(Person henkilö)
+        {
+            DataAccess da = new DataAccess(_context);
+            da.EditoiHenkilöä(henkilö);
+            return RedirectToAction("HaeTutorinPalvelut");
+        }
+
+        /// <summary>
+        /// PALVELUN CRUD
+        /// </summary>
+        /// <returns></returns>
+
+
         [HttpGet]
         public IActionResult LisääPalvelu()
         {
@@ -51,14 +78,11 @@ namespace WebApplication1.Controllers
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
-
-
-
         [HttpGet(Name = "HaeMuokattavaPalvelua")] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         public IActionResult EditoiPalvelua(int palveluid)
         {
             DataAccess da = new DataAccess(_context);
-            var muokattavapalvelu = da.haetuutorinpalvelut(palveluid); //EditoiPalvelua metodi puuttuu DataAccess palikasta
+            var muokattavapalvelu = da.haetuutorinpalvelut(palveluid);
             return View(muokattavapalvelu);
         }
 
@@ -69,8 +93,6 @@ namespace WebApplication1.Controllers
             da.EditoiPalvelua(palvelu);
             return RedirectToAction("HaeTutorinPalvelut");
         }
-
-
 
         [HttpDelete(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
         public IActionResult PoistaPalvelua(Palvelu palvelu)
