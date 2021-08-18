@@ -59,7 +59,7 @@ namespace WebApplication1
             db.SaveChanges();
 
         }
-        public bool TarkistaKäyttäjänAuth(string username, string password)
+       public bool TarkistaKäyttäjänAuth(string username, string password)
         {
             if (db.People.Where(k => k.Username == username).FirstOrDefault() != null && db.People.Where(k => k.Username == username).FirstOrDefault().Password == password)
             {

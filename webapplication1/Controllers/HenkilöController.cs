@@ -46,16 +46,10 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult OmatTiedot(int? Id)
+        public IActionResult OmatTiedot(int Id)
         {
-            if (Id !=null)
-            {
-                var henkilö = new DataAccess(_context).HaeTutor(Id);
-                return View(henkilö);
-            } else {
-                return Content("Virhe, tarkista oletko kirjautunut");
-            }
-           
+            var henkilö = new DataAccess(_context).HaeTutor(Id);
+            return View(henkilö);
         }
 
         [HttpGet]
@@ -87,16 +81,9 @@ namespace WebApplication1.Controllers
 
 
         [HttpGet]
-        public IActionResult LisääPalvelu(int? Id) //tarkista onko sessionissa id menossa, laita tähän ja tee ehtolause
+        public IActionResult LisääPalvelu()
         {
-            if (Id != null)
-            {
-                 return View();
-            }
-            else
-            {
-                return Content("Virhe, tarkista oletko kirjautunut");
-            }
+            return View();
         }
 
         [HttpPost]
@@ -152,7 +139,6 @@ namespace WebApplication1.Controllers
         
             return View();
             //tämän metodin pitää automaattisesti hakea tuutorin id:llä hänen palvelunsa kun käyttäjä ohjataan tähän actioon/sivulle
-            //lisäksi lisää ehtolause, joka tarkistaa onko sessionin kuljettama id null vai int, jos id on null > ohjaa virhesivuille
         }
     }
 }
