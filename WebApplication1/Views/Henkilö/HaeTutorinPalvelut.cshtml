@@ -16,7 +16,7 @@
 @model IEnumerable<WebApplication1.Models.Palvelu>
     
     <p>
-        <a asp-action="Create">Lisää uusi palvelu</a>
+        @Html.ActionLink("Lisää uusi palvelu", "LisääPalvelu", "Henkilö")
     </p>
     <table class="table">
         <thead>
