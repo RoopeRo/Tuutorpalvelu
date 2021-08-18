@@ -43,10 +43,16 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult OmatTiedot(int Id)
+        public IActionResult OmatTiedot(int? Id)
         {
-            var henkilö = new DataAccess(_context).HaeTutor(Id);
-            return View(henkilö);
+            if (Id !=null)
+            {
+                var henkilö = new DataAccess(_context).HaeTutor(Id);
+                return View(henkilö);
+            } else {
+                return Content("Virhe, tarkista oletko kirjautunut");
+            }
+           
         }
 
         [HttpGet]
