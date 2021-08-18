@@ -17,10 +17,10 @@ namespace WebApplication1.Controllers
     {
         //private readonly UserManager<Person> _userManager;
         private readonly TutorpalveluDBContext _context;
-        public HenkilöController(TutorpalveluDBContext context/*, UserManager<Person> userManager*/)
+        public HenkilöController(TutorpalveluDBContext context)
         {
             _context = context;
-            //_userManager = userManager;
+            
         }
 
         [HttpGet]
