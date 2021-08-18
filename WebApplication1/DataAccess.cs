@@ -31,20 +31,16 @@ namespace WebApplication1
         public List<Palvelu> haetuutorinpalvelut(int tunniste) //valitse yhden tuutorin monesta samannimisestä tuutorista
         {
             var lista = db.Palvelus.Where(p => p.TutorId == tunniste).ToList();
-
             return (List<Palvelu>)lista;
         }
 
         public List<Person> haepalvelutuutorit(int palvelutunniste) //palveluita palvelutunnisteen perusteella
         {
             var peeple = db.People.Include(p => p.Palvelus).ToList();
-
             var peple = (from p in peeple
                         from k in p.Palvelus
                         where k.PalveluId == palvelutunniste
                         select p).ToList();
-           
-
             return (List<Person>)peple;
         }
 
