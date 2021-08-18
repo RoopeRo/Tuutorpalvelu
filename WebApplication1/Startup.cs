@@ -28,7 +28,6 @@ namespace WebApplication1
             services.AddDbContext<TutorpalveluDBContext>(options =>
                    options.UseSqlServer(Configuration.GetConnectionString("azure")));
             services.AddControllersWithViews();
-            // sessio
             services.AddSession();
         }
 

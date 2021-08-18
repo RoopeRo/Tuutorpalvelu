@@ -1,0 +1,71 @@
+﻿@model WebApplication1.Models.Person
+
+@{
+    ViewData["Title"] = "OmatTiedot";
+}
+
+<h1>Omat Tiedot</h1>
+
+<div>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Username)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Username)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Etunimi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Etunimi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Sukunimi)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Sukunimi)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Osoite)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Osoite)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Postitoimipaikka)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Postitoimipaikka)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Postinumero)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Postinumero)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.PuhNro)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.PuhNro)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tutor)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tutor)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="EditoiHenkilöä" asp-route-id="@Model.PersonId">Muokkaa tietoja</a> |
+    <a asp-action="PoistaHenkilö" asp-route-id="@Model.PersonId">Poista tunnuksesi</a> 
+</div>

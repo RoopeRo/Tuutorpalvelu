@@ -1,23 +1,25 @@
 ﻿@model WebApplication1.Models.Person
 
 @{
-    ViewData["Title"] = "LisääHenkilö";
+    ViewData["Title"] = "EditoiHenkilöä";
 }
 
-<h1>Rekisteröidy käyttäjäksi</h1>
+<h1>Muokkaa tietoja</h1>
+
 <hr />
 <div class="row">
     <div class="col-md-4">
-        <form asp-action="LisääHenkilö">
+        <form asp-action="EditoiHenkilöä">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="PersonId" />
             <div class="form-group">
                 <label asp-for="Username" class="control-label"></label>
                 <input asp-for="Username" class="form-control" />
                 <span asp-validation-for="Username" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Password" class="control-label"></label><br />
-                <input type="password" name="Password" class="form-control"/>
+                <label asp-for="Password" class="control-label"></label>
+                <input type="password" name="Password" value=@Model.Password class="form-control" />
                 <span asp-validation-for="Password" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -61,28 +63,16 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Tallenna" class="btn btn-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    @Html.ActionLink("Paluu etusivulle", "Index", "Home")
+    @Html.ActionLink("Palaa omiin tietoihin", "OmatTiedot", "Henkilö", new {Id = Model.PersonId })
 </div>
-<div>
-    @if (ViewBag.People != null)
-    {
 
-        @foreach (var p in ViewBag.People)
-        {
-            <ul>
-                <li>@p.Etunimi</li>
-            </ul>
-        }
-    }
-
-</div>
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }

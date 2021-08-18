@@ -20,7 +20,12 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tyyppi" class="control-label"></label>
-                <input asp-for="Tyyppi" class="form-control" />
+                <select asp-for="Tyyppi" class="form-control">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="fiat">Fiat</option>
+                    <option value="audi">Audi</option>
+                </select>
                 <span asp-validation-for="Tyyppi" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -52,11 +57,6 @@
                 <label class="form-check-label">
                     <input class="form-check-input" asp-for="Varattu" /> @Html.DisplayNameFor(model => model.Varattu)
                 </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="TutorId" class="control-label"></label>
-                <select asp-for="TutorId" class="form-control" asp-items="ViewBag.TutorId"></select>
-                <span asp-validation-for="TutorId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Tallenna" class="btn btn-primary" />

@@ -1,7 +1,34 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
-@{
-}
-
-<p>Testi 0</p>
+﻿@model WebApplication1.Models.Palvelu
+<h1>Tarjolla olevat palvelut</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Nimi)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Pvm)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Kesto)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Hinta)</th>
+            <th scope="col">Tutor</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (ViewBag.Palvelut != null)
+        {
+            @foreach (var pal in ViewBag.Palvelut)
+            {
+                <tr>
+                    <td>@pal.PalveluId</td>
+                    <td>@Html.ActionLink($"{pal.Nimi}", "HaeDetails", "Palvelu")</td>
+                    <td>@pal.Ryhmä</td>
+                    <td>@pal.Tyyppi</td>
+                    <td>@pal.Pvm</td>
+                    <td>@pal.Kesto</td>
+                    <td>@pal.Hinta</td>
+                    <td>@($"{pal.Tutor.Etunimi} {pal.Tutor.Sukunimi}")</td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>
