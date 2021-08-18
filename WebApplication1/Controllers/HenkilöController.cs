@@ -21,7 +21,7 @@ namespace WebApplication1.Controllers
         }
 
         /// <summary>
-        /// HENKILÖ CRUD: GET, POST, PUT
+        /// HENKILÖ CRUD: GET, POST (put)
         /// </summary>
         /// <returns></returns>
 
@@ -50,39 +50,13 @@ namespace WebApplication1.Controllers
         }
 
         [HttpGet]
-        public IActionResult EditoiHenkilöä(int Id)
+        public IActionResult EditoiHenkilöä(int Id)//siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         {
             var henkilö = new DataAccess(_context).HaeTutor(Id);
             return View(henkilö);
         }
-        [HttpPost]
-        public IActionResult EditoiHenkilöä(Person henkilö)
-        {
-            DataAccess da = new DataAccess(_context);
-            da.EditoiHenkilöä(henkilö);
-            return RedirectToAction("");
-        }
 
-        //[HttpPost]
-        //public IActionResult EditoiHenkilöä(Person person) //tuutorin tai asiakkaan lisääminen
-        //{
-        //    DataAccess da = new DataAccess(_context);
-        //    da.Lisääkäyttäjä(person);
-        //    var q = da.haetuutorit();
-        //    ViewBag.People = q;
-        //    //return View();
-        //    return RedirectToAction("HaePalvelut", "Palvelu");
-        //}
-
-        [HttpGet(Name = "HaeMuokattavaHenkilö")] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
-        public IActionResult EditoiHenkilöä(int personid)
-        {
-            DataAccess da = new DataAccess(_context);
-            var muokattavahenkilö = da.haetuutor(personid); //EditoiPalvelua metodi puuttuu DataAccess palikasta
-            return View(muokattavahenkilö);
-        }
-
-        [HttpPut(Name = "EditoiHenkilöä")] //muokataan palvelua ja lähetetään se
+        [HttpPost] //editoidaan henkilöä ja lähetetaan se
         public IActionResult EditoiHenkilöä(Person henkilö)
         {
             DataAccess da = new DataAccess(_context);
