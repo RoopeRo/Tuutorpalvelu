@@ -8,16 +8,16 @@
 
 <br />
 <h2>Tarjoamasi Palvelut:</h2>
-@*<div>
+<div>
         <ul>
-            @foreach (var palvelu in ViewBag.OP)
+            @foreach (var palvelu in ViewBag.palvelut)
             {
                 <li>@palvelu.Nimi</li>
             }
         </ul>
-    </div>*@
+    </div>
 
-@*@model IEnumerable<WebApplication1.Models.Palvelu>*@
+@model IEnumerable<WebApplication1.Models.Palvelu>
 
 
 
@@ -80,9 +80,9 @@
                 </td>
 
                 <td>
-                    <a asp-action="Edit" asp-route-id="@item.PalveluId">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.PalveluId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.PalveluId">Delete</a>
+                    @Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new {palveluid = item.PalveluId }) |
+                    @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
+                    <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId">Poista</a>
                 </td>
             </tr>
         }

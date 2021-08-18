@@ -91,15 +91,15 @@ namespace WebApplication1.Controllers
             return RedirectToAction("HaeTutorinPalvelut");
         }
 
-        [HttpGet(Name = "HaeMuokattavaPalvelua")] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
+        [HttpGet/*(Name = "HaeMuokattavaPalvelua")*/] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         public IActionResult EditoiPalvelua(int palveluid)
         {
             DataAccess da = new DataAccess(_context);
-            var muokattavapalvelu = da.haetuutorinpalvelut(palveluid);
+            var muokattavapalvelu = da.haetuutorinpalvelut(palveluid).FirstOrDefault();
             return View(muokattavapalvelu);
         }
 
-        [HttpPut(Name = "EditoiPalvelua")] //muokataan palvelua ja lähetetään se
+        [HttpPost(Name = "EditoiPalvelua")] //muokataan palvelua ja lähetetään se
         public IActionResult EditoiPalvelua(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
@@ -108,7 +108,7 @@ namespace WebApplication1.Controllers
         }
 
         [HttpDelete(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
-        public IActionResult PoistaPalvelua(Palvelu palvelu)
+        public IActionResult PoistaPalvelu(Palvelu palvelu)
         {
             DataAccess da = new DataAccess(_context);
             da.PoistaPalvelu(palvelu);

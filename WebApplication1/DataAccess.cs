@@ -75,6 +75,7 @@ namespace WebApplication1
         public void EditoiPalvelua(Palvelu palvelu)
         {
             var muokattava = db.Palvelus.Find(palvelu.PalveluId);
+            muokattava.PalveluId = palvelu.PalveluId;
             muokattava.Hinta = palvelu.Hinta;
             muokattava.Nimi = palvelu.Nimi;
             muokattava.Kesto = palvelu.Kesto;
@@ -90,6 +91,7 @@ namespace WebApplication1
         public void EditoiHenkilöä(Person henkilö)
         {
             var muokattava = db.People.Find(henkilö.PersonId);
+            muokattava.PersonId = henkilö.PersonId;
             muokattava.Osoite = henkilö.Osoite;
             muokattava.Etunimi = henkilö.Etunimi;
             muokattava.Email = henkilö.Email;
