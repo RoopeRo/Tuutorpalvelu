@@ -5,8 +5,8 @@
         <tr>
             <th scope="col">#</th>
             <th scope="col">@Html.DisplayNameFor(model => model.Nimi)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>
+            @*<th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>*@
             <th scope="col">@Html.DisplayNameFor(model => model.Pvm)</th>
             <th scope="col">@Html.DisplayNameFor(model => model.Kesto)</th>
             <th scope="col">@Html.DisplayNameFor(model => model.Hinta)</th>
@@ -21,8 +21,8 @@
         <tr>
             <td>@pal.PalveluId</td>
             <td>@Html.ActionLink($"{pal.Nimi}", "HaeDetails", "Palvelu", new {id = pal.PalveluId })</td>
-            <td>@pal.Ryhmä</td>
-            <td>@pal.Tyyppi</td>
+            @*<td>@pal.Ryhmä</td>
+            <td>@pal.Tyyppi</td>*@
             <td>@pal.Pvm</td>
             <td>@pal.Kesto</td>
             <td>@pal.Hinta</td>
