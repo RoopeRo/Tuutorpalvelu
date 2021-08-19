@@ -16,7 +16,7 @@ a.navbar-brand {
 
 @font-face {
     font-family: otsikko;
-    src: url('/AldithRegular.ttf');
+    src: url(../AldithRegular.ttf);
 }
 
 .linkki {
@@ -24,7 +24,7 @@ a.navbar-brand {
 }
 
 fieldset {
-    background-color: ghostwhite;
+    background-color: gainsboro;
     padding-bottom: 30px;
 }
 

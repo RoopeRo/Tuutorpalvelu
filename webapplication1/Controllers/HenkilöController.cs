@@ -72,7 +72,6 @@ namespace WebApplication1.Controllers
             {
                 return RedirectToAction("Virhe", "Home");
             }
-
         }
 
         [HttpGet]
