@@ -62,14 +62,15 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Tallenna" class="btn btn-primary" />
+                <input type="submit" value="Tallenna" class="btn btn-outline-primary" />
             </div>
         </form>
     </div>
 </div>
 
-<div>
-    @Html.ActionLink("Palaa omiin tietoihin", "OmatTiedot", "Henkilö", new {Id = Model.PersonId })
+<div><button class="btn btn-outline-secondary">
+    @Html.ActionLink("Palaa omiin tietoihin", "OmatTiedot", "Henkilö", new { Id = Model.PersonId })
+</button>
 </div>
 
 @section Scripts {

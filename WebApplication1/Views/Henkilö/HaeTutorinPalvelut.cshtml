@@ -65,11 +65,11 @@
                     <td>
                         @item.Sijainti
                     </td>
-                            <td>
-                    @Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new {palveluid = item.PalveluId }) |
-                    @Html.ActionLink("Tiedot", "HaeDetails", "Palvelu", new {id = item.PalveluId}) |
-                    <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId">Poista</a>
-                   </td> 
+                    <td>
+                        <button class="btn btn-outline-success">@Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new { palveluid = item.PalveluId })</button>
+                        <button class="btn btn-outline-info">@Html.ActionLink("Tiedot", "HaeDetails", "Palvelu", new { id = item.PalveluId })</button>
+                        <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId" class="btn btn-outline-danger">Poista</a>
+                    </td>
                 </tr>
             }
         </tbody>

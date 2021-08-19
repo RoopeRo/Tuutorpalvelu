@@ -1,21 +1,17 @@
 ﻿@model WebApplication1.Models.Palvelu
+
+    <h3>Palvelun tiedot</h3>
 @if (ViewBag.Palvelu.Varattu == false)
 {
     <p>Varaa palvelu ottamalla suoraan yhteyttä palveluntarjoajaan!</p>
-    <button id="varausNappi" type="button" style="background-color:cornflowerblue" onclick="location.href='mailto:@ViewBag.Palvelu.Tutor.Email';">Varaa</button>
-
+    <button id="varausNappi" type="button" class="btn btn-outline-warning" onclick="location.href='mailto:@ViewBag.Palvelu.Tutor.Email';">Varaa</button>
 }
 @if (ViewBag.Palvelu.Varattu == true)
 {
     <p style="color:darkred"><b>Tämä palvelu on jo varattu</b></p>
 }
 
-
-<br />
-<br />
-
-<h1>Palvelun tiedot</h1>
-<table class="table" id="details">
+<table class="table table-striped" id="details">
     @if (ViewBag.Palvelu != null)
     {
         <tr>
