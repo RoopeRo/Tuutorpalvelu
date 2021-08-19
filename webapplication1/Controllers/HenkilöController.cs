@@ -19,7 +19,7 @@ namespace WebApplication1.Controllers
         public HenkilöController(TutorpalveluDBContext context)
         {
             _context = context;
-            
+
         }
 
         [HttpGet]
@@ -63,14 +63,16 @@ namespace WebApplication1.Controllers
         public IActionResult OmatTiedot()
         {
             var id = HttpContext.Session.GetInt32("id");
-            if (id !=null)
+            if (id != null)
             {
                 var henkilö = new DataAccess(_context).HaeKäyttäjä(id);
                 return View(henkilö);
-            } else {
+            }
+            else
+            {
                 return RedirectToAction("Virhe", "Home");
             }
-           
+
         }
 
         [HttpGet]
@@ -86,7 +88,7 @@ namespace WebApplication1.Controllers
         {
             DataAccess da = new DataAccess(_context);
             da.EditoiHenkilöä(henkilö);
-            return RedirectToAction("OmatTiedot", new {Id = henkilö.PersonId });
+            return RedirectToAction("OmatTiedot", new { Id = henkilö.PersonId });
         }
         public IActionResult PoistaHenkilö(int Id)
         {
@@ -107,9 +109,10 @@ namespace WebApplication1.Controllers
         public IActionResult LisääPalvelu() //tarkista onko sessionissa id menossa, laita tähän ja tee ehtolause
         {
             var id = HttpContext.Session.GetInt32("id");
-            if (id != null)
+            var tutor = HttpContext.Session.GetString("tutor");
+            if (id != null && tutor == "true")
             {
-                 return View();
+                return View();
             }
             else
             {
@@ -129,9 +132,17 @@ namespace WebApplication1.Controllers
         [HttpGet/*(Name = "HaeMuokattavaPalvelua")*/] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
         public IActionResult EditoiPalvelua(int palveluid)
         {
+            var id = HttpContext.Session.GetInt32("id");
             DataAccess da = new DataAccess(_context);
             var muokattavapalvelu = da.haepalvelut().Where(p => p.PalveluId == palveluid).ToList().FirstOrDefault();
-            return View(muokattavapalvelu);
+            if (id == muokattavapalvelu.TutorId)
+            {
+                return View(muokattavapalvelu);
+            }
+            else
+            {
+                return RedirectToAction("Virhe", "Home");
+            }
         }
 
         [HttpPost(Name = "EditoiPalvelua")] //muokataan palvelua ja lähetetään se
@@ -145,10 +156,20 @@ namespace WebApplication1.Controllers
         [HttpGet(Name = "PoistaPalvelu")]//poistetaan palvelu palvelu id perusteella; pelkkä nappi, ohjaa samaan näkymään hakemalla uudestaan tuutorin palvelut
         public IActionResult PoistaPalvelu(int id)
         {
+            var tutorid = HttpContext.Session.GetInt32("id");
             DataAccess da = new DataAccess(_context);
             var palvelu = da.haepalvelut().Where(p => p.PalveluId == id).FirstOrDefault();
-            da.PoistaPalvelu(palvelu);
-            return RedirectToAction("HaeTutorinPalvelut");
+            if (tutorid == palvelu.TutorId)
+            {
+
+                da.PoistaPalvelu(palvelu);
+                return RedirectToAction("HaeTutorinPalvelut");
+            }
+
+            else
+            {
+                return RedirectToAction("Virhe", "Home");
+            }
         }
 
         /// <summary>
@@ -171,7 +192,9 @@ namespace WebApplication1.Controllers
                      where p.TutorId == id
                      select p.Tyyppi).Distinct().Count();
                 ViewBag.Nimi = HttpContext.Session.GetString("nimi");
-            } else {
+            }
+            else
+            {
                 return RedirectToAction("Virhe", "Home");
             }
             return View();
