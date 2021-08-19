@@ -35,13 +35,14 @@ namespace WebApplication1.Controllers
         public IActionResult HaeDetails(int id)
         {
             DataAccess DA = new DataAccess(_context);
-            var palvelut = DA.haepalvelut().Where(p => p.PalveluId == id);
-            foreach (var p in palvelut)
-            {
-                _context.Entry(p).Reference(r => r.Tutor).Load();
-            }
-
-            ViewBag.Palvelut = palvelut;
+            //var palvelut = DA.haepalvelut().Where(p => p.PalveluId == id);
+            //foreach (var p in palvelut)
+            //{
+            //    _context.Entry(p).Reference(r => r.Tutor).Load();
+            //}
+            Palvelu palvelu = DA.haepalvelut().Where(p => p.PalveluId == id).FirstOrDefault();
+            _context.Entry(palvelu).Reference(r => r.Tutor).Load();
+            ViewBag.Palvelu = palvelu;
             return View();
         }
         [HttpPost]
