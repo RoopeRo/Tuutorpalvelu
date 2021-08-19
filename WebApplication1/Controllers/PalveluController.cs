@@ -47,10 +47,17 @@ namespace WebApplication1.Controllers
         
         public IActionResult HaePalvelutFiltteri(string hakusana)
         {
-            DataAccess da = new DataAccess(_context);
-            var lista = da.hakusana(hakusana);
 
-            return View();
+            if(hakusana != null) {
+                DataAccess da = new DataAccess(_context);
+                var lista = da.hakusana(hakusana);
+
+                ViewBag.palvelut = lista;
+
+                return View();
+            } else { return View(); }
+
+          
         }
 
 
