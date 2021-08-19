@@ -100,6 +100,7 @@ namespace WebApplication1
             //muokattava.TutorId = palvelu.TutorId;
             muokattava.Tyyppi = palvelu.Tyyppi;
             muokattava.Varattu = palvelu.Varattu;
+            muokattava.Kuvaus = palvelu.Kuvaus;
             db.SaveChanges();
         }
 
