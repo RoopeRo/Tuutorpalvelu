@@ -60,7 +60,6 @@ namespace WebApplication1
         {
             
             var tuutori = db.People.Find(id);
-
             tuutori.Palvelus.Add(palvelu);
             db.People.Update(tuutori);
             db.SaveChanges();
