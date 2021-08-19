@@ -96,7 +96,9 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Palvelu" asp-action="HaePalvelut">Palvelu</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Kalenteri" asp-action="Kalenteri">Kalenteri</a>
+                        </li>
                         @if (id != null)
                         {
                             <li class="nav-item">
@@ -108,9 +110,7 @@
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="OmatTiedot">Omat tiedot</a>
                             </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Kalenteri" asp-action="Kalenteri">Kalenteri</a>
-                        </li>
+
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Uloskirjaus">Uloskirjautuminen</a>
                             </li>
