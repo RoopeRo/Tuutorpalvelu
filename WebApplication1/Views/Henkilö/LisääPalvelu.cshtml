@@ -4,13 +4,10 @@
     ViewData["Title"] = "LisääPalvelu";
 }
 
-<h1>LisääPalvelu</h1>
-
-<h4>Palvelu</h4>
-<hr />
+<h3>Lisää palvelu</h3>
 <div class="row">
-    <div class="col-md-4">
-        <form asp-action="LisääPalvelu">
+    <div class="col-md-4" >
+        <form asp-action="LisääPalvelu" class="form-floating">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nimi" class="control-label"></label>
@@ -63,14 +60,14 @@
                 </label>
             </div>
             <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-primary" />
+                <input type="submit" value="Lisää palvelu" class="btn btn-outline-primary" />
             </div>
         </form>
     </div>
 </div>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Takaisin</a>
 </div>
 
 @section Scripts {

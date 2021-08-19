@@ -5,6 +5,6 @@
 }
 
 <h2>Tapahtui virhe</h2>
-<p>Tarkista että olet kirjautunut</p>
-@Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")<br />
-@Html.ActionLink("Kirjaudu", "Index", "Home")
+<p class="alert alert-danger" role="alert"> Tarkista että olet kirjautunut</p>
+    @Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")<br />
+    @Html.ActionLink("Kirjaudu", "Index", "Home")
