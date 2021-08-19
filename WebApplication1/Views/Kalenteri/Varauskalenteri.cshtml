@@ -1,18 +1,13 @@
-﻿@{
-    ViewBag.Title = "Omat palvelut";
-}
+﻿@model List<WebApplication1.Models.Palvelu>
 
-@if (ViewBag.ID != null)
+@{
+    ViewData["Title"] = "Varauskalenteri";
+}
+@if (ViewBag.Varaukset != null)
 {
-    @model IEnumerable<WebApplication1.Models.Palvelu>
-    <h3>@*@ViewBag.nimi*@ Omat palvelusi</h3>
-    <p>
-        Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta.
-    </p>
-    <button class="btn btn-outline-primary">
-        @Html.ActionLink("Lisää uusi palvelu", "LisääPalvelu", "Henkilö")
-    </button>
-    <table class="table table-striped">
+    <h1>@ViewBag.Kuukausi @ViewBag.Päivä @ViewBag.Vuosi</h1>
+
+    <table class="table">
         <thead>
             <tr>
                 <th>
@@ -36,16 +31,15 @@
                 <th>
                     Sijainti
                 </th>
-
                 <th></th>
             </tr>
         </thead>
         <tbody>
-            @foreach (var item in ViewBag.palvelut)
+            @foreach (var item in Model)
             {
                 <tr>
                     <td>
-                        @item.Nimi
+                    @Html.ActionLink($"{item.Nimi}", "HaeDetails", "Palvelu", new { id = item.PalveluId })
                     </td>
                     <td>
                         @item.Tyyppi
@@ -65,17 +59,14 @@
                     <td>
                         @item.Sijainti
                     </td>
-                            <td>
-                    @Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new {palveluid = item.PalveluId }) |
-                    @Html.ActionLink("Tiedot", "HaeDetails", "Palvelu", new {id = item.PalveluId}) |
-                    <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId">Poista</a>
-                   </td> 
+                    <td>
+
+                        @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
+
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 }
-@if (ViewBag.ID == null)
-{
-    <h5>Käyttäjää ei löydetty.</h5>
-}
+

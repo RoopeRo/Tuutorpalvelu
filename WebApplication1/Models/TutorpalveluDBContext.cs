@@ -63,6 +63,10 @@ namespace WebApplication1.Models
                     .HasMaxLength(50)
                     .IsUnicode(false);
 
+                entity.Property(e => e.Kuvaus)
+                    .HasMaxLength(200)
+                    .IsUnicode(false);
+
                 entity.HasOne(d => d.Tutor)
                     .WithMany(p => p.Palvelus)
                     .HasForeignKey(d => d.TutorId)

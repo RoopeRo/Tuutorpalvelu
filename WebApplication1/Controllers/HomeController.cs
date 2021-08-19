@@ -52,6 +52,15 @@ namespace WebApplication1.Controllers
                 HttpContext.Session.SetInt32("id", käyttäjä.PersonId);
                 var id = HttpContext.Session.GetInt32("id");
                 HttpContext.Session.SetString("nimi", käyttäjä.Etunimi);
+                if (käyttäjä.Tutor == true)
+                {
+                    HttpContext.Session.SetString("tutor", "true");
+                }
+                else
+                {
+                    HttpContext.Session.SetString("tutor", "false");
+
+                }
                 //RedirectToAction("Testi", "Muutos");
                 ViewBag.AuthOK = true;
                 return RedirectToAction("Index", "Henkilö");

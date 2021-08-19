@@ -100,6 +100,7 @@ namespace WebApplication1
             //muokattava.TutorId = palvelu.TutorId;
             muokattava.Tyyppi = palvelu.Tyyppi;
             muokattava.Varattu = palvelu.Varattu;
+            muokattava.Kuvaus = palvelu.Kuvaus;
             db.SaveChanges();
         }
 
@@ -129,6 +130,17 @@ namespace WebApplication1
             var poistettava = db.People.Find(henkilö.PersonId);
             db.Remove(poistettava);
             db.SaveChanges();
+        }
+
+        public List<Palvelu> hakusana(string hakusana)
+        {
+            var lista = db.Palvelus
+               .Where(p => p.Nimi.ToLower().Contains(hakusana.ToLower()) 
+               || p.Sijainti.ToLower().Contains(hakusana.ToLower()     ) 
+               || p.Tyyppi.ToLower().Contains(hakusana.ToLower()       )
+               || p.Ryhmä.ToLower().Contains(hakusana.ToLower())      ).ToList();
+
+            return lista;
         }
 
     }

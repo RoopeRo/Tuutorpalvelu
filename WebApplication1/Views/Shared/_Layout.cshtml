@@ -34,6 +34,33 @@
                 background-color: #04AA6D;
                 color: white;
             }
+        #VarausKalenteri {
+            font-family: Arial, Helvetica, sans-serif;
+            align-content: center;
+            text-align: center;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+            #VarausKalenteri td, #Kalenteri th {
+                border: 1px solid #ddd;
+                padding: 8px;
+            }
+
+            #VarausKalenteri tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+
+            #VarausKalenteri tr:hover {
+                background-color: #ddd;
+            }
+
+            #VarausKalenteri th {
+                padding-top: 12px;
+                padding-bottom: 12px;
+                background-color: #04AA6D;
+                color: white;
+            }
     </style>
 </head>
 <body>
@@ -65,23 +92,30 @@
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Etusivu</a>
                             </li>
                         }
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Palvelu" asp-action="HaePalvelutFiltteri">Haku</a>
+                        </li>
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Palvelu" asp-action="HaePalvelut">Palvelu</a>
                         </li>
-
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Kalenteri" asp-action="Kalenteri">Kalenteri</a>
+                        </li>
                         @if (id != null)
                         {
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="LisääPalvelu">Lisää palvelu</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="HaeTutorinPalvelut">Omat palvelut</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="OmatTiedot">Omat tiedot</a>
-                            </li>
+                            @if (Context.Session.GetString("tutor") == "true")
+                            {
 
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="LisääPalvelu">Lisää palvelu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="HaeTutorinPalvelut">Omat palvelut</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Henkilö" asp-action="OmatTiedot">Omat tiedot</a>
+                                </li>
+                            }
                             <li class="nav-item">
                                 <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Uloskirjaus">Uloskirjautuminen</a>
                             </li>

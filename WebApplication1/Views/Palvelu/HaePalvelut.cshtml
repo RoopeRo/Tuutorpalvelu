@@ -6,9 +6,10 @@
             <th scope="col">#</th>
             <th scope="col">@Html.DisplayNameFor(model => model.Nimi)</th>
             @*<th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>*@
+        <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>*@
             <th scope="col">@Html.DisplayNameFor(model => model.Pvm)</th>
             <th scope="col">@Html.DisplayNameFor(model => model.Kesto)</th>
+            <th scope="col">@Html.DisplayNameFor(model => model.Sijainti)</th>
             <th scope="col">@Html.DisplayNameFor(model => model.Hinta)</th>
             <th scope="col">Tutor</th>
         </tr>
@@ -25,6 +26,7 @@
             <td>@pal.Tyyppi</td>*@
             <td>@pal.Pvm</td>
             <td>@pal.Kesto</td>
+            <td>@pal.Sijainti</td>
             <td>@pal.Hinta</td>
             <td>@($"{pal.Tutor.Etunimi} {pal.Tutor.Sukunimi}")</td>
         </tr>
