@@ -4,21 +4,15 @@
 
 @if (ViewBag.ID != null)
 {
-
-    <h1>Tuutorin @ViewBag.nimi omat palvelut</h1>
-    
-    <p>Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta. </p>
-
-<br />
-<h2>Tarjoamasi Palvelut:</h2>
-
-
-@model IEnumerable<WebApplication1.Models.Palvelu>
-    
+    @model IEnumerable<WebApplication1.Models.Palvelu>
+    <h3>@*@ViewBag.nimi*@ Omat palvelusi</h3>
     <p>
-        @Html.ActionLink("Lisää uusi palvelu", "LisääPalvelu", "Henkilö")
+        Olet tarjonnut <b>@ViewBag.EriTyyppienMäärä</b> eri tyyppistä palvelua ja palveluita kaiken kaikkiaan yhteensä <b>@ViewBag.PalveluidenMäärä</b> kappaletta.
     </p>
-    <table class="table">
+    <button class="btn btn-outline-primary">
+        @Html.ActionLink("Lisää uusi palvelu", "LisääPalvelu", "Henkilö")
+    </button>
+    <table class="table table-striped">
         <thead>
             <tr>
                 <th>
@@ -71,17 +65,17 @@
                     <td>
                         @item.Sijainti
                     </td>
-                            <td>
-                    @Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new {palveluid = item.PalveluId }) |
-                    @Html.ActionLink("Tiedot", "HaeDetails", "Palvelu", new {id = item.PalveluId}) |
-                    <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId">Poista</a>
-                   </td> 
+                    <td>
+                        <button class="btn btn-outline-success">@Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new { palveluid = item.PalveluId })</button>
+                        <button class="btn btn-outline-info">@Html.ActionLink("Tiedot", "HaeDetails", "Palvelu", new { id = item.PalveluId })</button>
+                        <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId" class="btn btn-outline-danger">Poista</a>
+                    </td>
                 </tr>
             }
         </tbody>
     </table>
 }
-@if (ViewBag.ID==null) { 
+@if (ViewBag.ID == null)
+{
     <h5>Käyttäjää ei löydetty.</h5>
 }
-                 

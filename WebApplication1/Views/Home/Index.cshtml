@@ -24,17 +24,15 @@
                 </td>
             </tr>
             <tr>
-                <td><input type="submit" value="Sisään" /></td>
+                <td><input type="submit" value="Sisään" class="btn btn-outline-primary"/></td>
                 <td></td>
             </tr>
         </table>
     }
     @if(ViewBag.AuthOK == false)
             {
-                <h5 style="color:red">Salasana tai käyttäjätunnus väärin</h5>
-                <h5 style="color:red">Yritä uudelleen</h5>
-                <p></p>
+                <p class="alert alert-danger" role="alert">Salasana tai käyttäjätunnus väärin<br />Yritä uudelleen</p>
             }
     <br />
-    @Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")
+    <button class="btn btn-outline-primary">@Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")</button>
 </div>
