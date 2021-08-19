@@ -20,11 +20,11 @@
             <th scope="row">Varaustilanne</th>
             @if (ViewBag.Palvelu.Varattu == true)
             {
-                <td>Täynnä</td>
+                <td style="color:darkred">Täynnä</td>
             }
             @if (ViewBag.Palvelu.Varattu == false)
             {
-                <td>Tilaa</td>
+                <td style="color:forestgreen">Tilaa</td>
             }
 
         </tr>
