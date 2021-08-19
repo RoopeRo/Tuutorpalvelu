@@ -3,36 +3,70 @@
 @{
     ViewData["Title"] = "Varauskalenteri";
 }
-@if(ViewBag.Varaukset != null)
-{ 
-<h1>@ViewBag.Kuukausi @ViewBag.Päivä @ViewBag.Vuosi</h1>
-<table id="VarausKalenteri">
-    <thead>
-        <tr>
-            <th>Palvelu</th>
-            <th>Sijainti</th>
-            <th>Hinta</th>
-            @*<th>Tutor</th>*@
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var palvelu in Model)
-        {
-        <tr>
-            <td>
-                @palvelu.Nimi
-            </td>
-            <td>
-                @palvelu.Sijainti
-            </td>
-            <td>
-                @palvelu.Hinta
-            </td>
-            @*<td>
-                @palvelu.Tutor
-            </td>*@
-        </tr>
-        }
-    </tbody>
-</table>
+@if (ViewBag.Varaukset != null)
+{
+    <h1>@ViewBag.Kuukausi @ViewBag.Päivä @ViewBag.Vuosi</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Nimi
+                </th>
+                <th>
+                    Tyyppi
+                </th>
+                <th>
+                    Ryhmä
+                </th>
+                <th>
+                    Hinta
+                </th>
+                <th>
+                    Pvm
+                </th>
+                <th>
+                    Kesto
+                </th>
+                <th>
+                    Sijainti
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                    @Html.ActionLink($"{item.Nimi}", "HaeDetails", "Palvelu", new { id = item.PalveluId })
+                    </td>
+                    <td>
+                        @item.Tyyppi
+                    </td>
+                    <td>
+                        @item.Ryhmä
+                    </td>
+                    <td>
+                        @item.Hinta
+                    </td>
+                    <td>
+                        @item.Pvm
+                    </td>
+                    <td>
+                        @item.Kesto
+                    </td>
+                    <td>
+                        @item.Sijainti
+                    </td>
+                    <td>
+
+                        @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 }
+
