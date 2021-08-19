@@ -4,10 +4,9 @@
     ViewData["Title"] = "OmatTiedot";
 }
 
-<h1>Omat Tiedot</h1>
+<h3>Omat Tiedot</h3>
 
-<div>
-    <hr />
+<div class="leipäteksti">
     <dl class="row">
         <dt class = "col-sm-2">
             @Html.DisplayNameFor(model => model.Username)
@@ -66,6 +65,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="EditoiHenkilöä" asp-route-id="@Model.PersonId">Muokkaa tietoja</a> |
-    <a asp-action="PoistaHenkilö" asp-route-id="@Model.PersonId">Poista tunnuksesi</a> 
+    <a asp-action="EditoiHenkilöä" asp-route-id="@Model.PersonId" class="btn btn-outline-success">Muokkaa tietoja</a>
+    <a asp-action="PoistaHenkilö" asp-route-id="@Model.PersonId" class="btn btn-outline-danger">Poista tunnuksesi</a> 
 </div>
