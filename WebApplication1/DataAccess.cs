@@ -140,6 +140,24 @@ namespace WebApplication1
                || p.Tyyppi.ToLower().Contains(hakusana.ToLower()       )
                || p.Ryhmä.ToLower().Contains(hakusana.ToLower())      ).ToList();
 
+            //if(lista.Count == 0)
+            //{
+            //    List<Palvelu> lista2 = new List<Palvelu>();
+            //    var tuutorit = db.People
+            //        .Where(p => p.Etunimi.ToLower().Contains(hakusana.ToLower())
+            //       || p.Sukunimi.ToLower().Contains(hakusana.ToLower())).ToList();
+
+            //    foreach (var item in tuutorit)
+            //    {
+            //        foreach (var palvelu in item.Palvelus)
+            //        {
+            //            lista2.Add(palvelu);
+
+            //        }
+            //    }
+            //    return lista2;
+            //}
+
             return lista;
         }
 
