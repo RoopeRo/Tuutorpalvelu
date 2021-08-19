@@ -15,6 +15,10 @@
             width: 100%;
         }
 
+        #Kalenteri a {
+            color: cornflowerblue;
+        }
+
             #Kalenteri td, #Kalenteri th {
                 border: 1px solid #ddd;
                 padding: 8px;
@@ -24,14 +28,14 @@
                 background-color: #f2f2f2;
             }
 
-            #Kalenteri tr:hover {
+            #Kalenteri td:hover {
                 background-color: #ddd;
             }
 
             #Kalenteri th {
                 padding-top: 12px;
                 padding-bottom: 12px;
-                background-color: #04AA6D;
+                background-color: lightslategrey;
                 color: white;
             }
         #VarausKalenteri {
@@ -67,7 +71,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <h3>Tutorpalvelu</h3>
+                <h2>Tutorpalvelu</h2>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -139,7 +143,7 @@
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2021 - WebApplication1 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2021 - WebApplication
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
