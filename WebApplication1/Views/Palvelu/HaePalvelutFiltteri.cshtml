@@ -4,15 +4,13 @@
     ViewData["Title"] = "HaePalvelutFiltteri";
 }
 
-<h1>Hae Palveluja</h1>
+<h3>Hae palveluita</h3>
 <form action="HaePalvelutFiltteri" method="post">
     <input type="text" name="hakusana" value="" />
-    <input type="submit" value="Hae" class="btn btn-primary" />
+    <input type="submit" value="Hae" class="btn btn-outline-info" />
 </form>
 
-
-
-<table class="table">
+<table class="table table-striped">
     <thead>
         <tr>
             <th>
@@ -78,7 +76,7 @@
 </table>
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index" class="btn btn-outline-secondary">Takaisin</a>
 </div>
 
 @section Scripts {

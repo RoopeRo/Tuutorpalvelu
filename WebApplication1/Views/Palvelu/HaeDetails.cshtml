@@ -5,16 +5,15 @@
 
 @if (ViewBag.Palvelu.Varattu == false)
 {
-    <p><i>Varaa palvelu ottamalla suoraan yhteyttä palveluntarjoajaan!</i></p>
-    <button id="varausNappi" type="button" style="background-color:cornflowerblue" onclick="location.href='mailto:@ViewBag.Palvelu.Tutor.Email';">Varaa</button>
+    <p>Varaa palvelu ottamalla suoraan yhteyttä palveluntarjoajaan!</p>
+    <button id="varausNappi" type="button" class="btn btn-outline-warning" onclick="location.href='mailto:@ViewBag.Palvelu.Tutor.Email';">Varaa</button>
 }
 @if (ViewBag.Palvelu.Varattu == true)
 {
     <p style="color:darkred"><b>Tämä kurssi on jo täynnä</b></p>
 }
-<br />
-<h2>Palvelun tiedot</h2>
-<table class="table" id="details">
+
+<table class="table table-striped" id="details">
     @if (ViewBag.Palvelu != null)
     {
         <tr>
