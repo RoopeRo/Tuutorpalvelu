@@ -22,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Tyyppi" class="control-label">Kategoria</label>
-                <select asp-for="Tyyppi" class="form-control">
+                <select asp-for="Tyyppi" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="esim. Musiikki">
                     <option value="Kotitalostaidot">Kotitaloustaidot</option>
                     <option value="Liikunta">Liikunta</option>
                     <option value="Business">Business</option>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Ryhmä" class="control-label">Alakategoria</label>
-                <input asp-for="Ryhmä" class="form-control" />
+                <input asp-for="Ryhmä" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="esim. harpunsoitto"/>
                 <span asp-validation-for="Ryhmä" class="text-danger"></span>
             </div>
             <div class="form-group">
