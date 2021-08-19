@@ -104,6 +104,11 @@ namespace WebApplication1.Controllers
             }
             else
             {
+                var palvelut = da.haepalvelut().Where(h => h.TutorId == henkilö.PersonId).ToList();
+                foreach(var palvelu in palvelut)
+                {
+                    da.PoistaPalvelu(palvelu);
+                }
                 da.PoistaHenkilö(henkilö);
                 HttpContext.Session.Clear();
                 return RedirectToAction("Index", "Home");
