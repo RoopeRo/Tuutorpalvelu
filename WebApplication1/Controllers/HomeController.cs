@@ -88,6 +88,10 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        public IActionResult SivuKaatuu()
+        {
+            return View();
+        }
         public IActionResult Uloskirjaus()
         {
             HttpContext.Session.Clear();
