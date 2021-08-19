@@ -12,17 +12,17 @@
 }
 
 <div class="row">
-    <div class="col-md-4" >
+    <div class="col-md-4">
         <form asp-action="LisääPalvelu" class="form-floating">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
+            <div class="form-group" >
                 <label asp-for="Nimi" class="control-label"></label>
-                <input asp-for="Nimi" class="form-control" />
+                <input asp-for="Nimi" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Tähän nimesi"/>
                 <span asp-validation-for="Nimi" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Tyyppi" class="control-label"></label>
-                <select asp-for="Tyyppi" class="form-control">
+                <select asp-for="Tyyppi" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="esim. musiikki">
                     <option value="Kotitalostaidot">Kotitaloustaidot</option>
                     <option value="Liikunta">Liikunta</option>
                     <option value="Business">Business</option>
@@ -32,32 +32,32 @@
             </div>
             <div class="form-group">
                 <label asp-for="Ryhmä" class="control-label"></label>
-                <input asp-for="Ryhmä" class="form-control" />
+                <input asp-for="Ryhmä" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="esim. harpunsoitto"/>
                 <span asp-validation-for="Ryhmä" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Hinta" class="control-label"></label>
-                <input type="text" name="Hinta" class="form-control" />
+                <input type="text" name="Hinta" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Euroissa ja senteissa €"/>
                 <span asp-validation-for="Hinta" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Pvm" class="control-label"></label>
-                <input asp-for="Pvm" class="form-control" />
+                <input asp-for="Pvm" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Päivämäärä"/>
                 <span asp-validation-for="Pvm" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Kesto" class="control-label"></label>
-                <input asp-for="Kesto" class="form-control" />
+                <input asp-for="Kesto" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Laita kesto tunneissa ja minuuteissa"/>
                 <span asp-validation-for="Kesto" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Sijainti" class="control-label"></label>
-                <input asp-for="Sijainti" class="form-control" />
+                <input asp-for="Sijainti" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Kaupungin ja kaupunginosan nimi "/>
                 <span asp-validation-for="Sijainti" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Kuvaus" class="control-label"></label>
-                <input asp-for="Kuvaus" class="form-control" />
+                <input asp-for="Kuvaus" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Vapaamuotoinen kuvaus palvelustasi"/>
                 <span asp-validation-for="Kuvaus" class="text-danger"></span>
             </div>
             <div class="form-group form-check">
