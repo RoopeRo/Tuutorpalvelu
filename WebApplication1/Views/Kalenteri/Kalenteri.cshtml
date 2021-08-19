@@ -1,4 +1,4 @@
-﻿<h2>@ViewBag.Vuosi</h2>
+﻿<h3>@ViewBag.Vuosi</h3>
 <hr />
 <h3>
     @Html.ActionLink("<<", "Kalenteri", new { vuosi = (ViewBag.Kuukausi.ToString() == "Tammikuu" ? ViewBag.Vuosi - 1 : ViewBag.Vuosi), kuukausi = (ViewBag.Kuukausi.ToString() == "Tammikuu" ? 12 : ViewBag.KNro - 1) })
