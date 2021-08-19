@@ -45,22 +45,14 @@ namespace WebApplication1.Controllers
             return View();
         }
         
-        public IActionResult HaePalvelutFiltteri()
-        {
-
-
-            return View();
-        }
-
-        [HttpPost]
         public IActionResult HaePalvelutFiltteri(string hakusana)
         {
             DataAccess da = new DataAccess(_context);
             var lista = da.hakusana(hakusana);
 
-
             return View();
         }
+
 
     }
 }
