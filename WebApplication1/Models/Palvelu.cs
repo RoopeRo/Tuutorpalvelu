@@ -18,6 +18,8 @@ namespace WebApplication1.Models
         public bool Varattu { get; set; }
         public int? TutorId { get; set; }
 
+        public string Kuvaus { get; set; }
+
         public virtual Person Tutor { get; set; }
     }
 }
