@@ -47,6 +47,16 @@ namespace WebApplication1.Controllers
         [HttpPost]
         public IActionResult HaePalvelutFiltteri()
         {
+
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult HaePalvelutFiltteri(Palvelu palvelu)
+        {
+
+
             return View();
         }
 
