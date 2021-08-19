@@ -73,7 +73,7 @@
                     </td>
                             <td>
                     @Html.ActionLink("Muokkaa", "EditoiPalvelua", null, new {palveluid = item.PalveluId }) |
-                    @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
+                    @Html.ActionLink("Tiedot", "HaeDetails", "Palvelu", new {id = item.PalveluId}) |
                     <a asp-action="PoistaPalvelu" asp-route-id="@item.PalveluId">Poista</a>
                    </td> 
                 </tr>
