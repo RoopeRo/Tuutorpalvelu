@@ -6,33 +6,34 @@
     <h1 class="display-2">Tervetuloa</h1>
     <hr />
     <h3 class="display-4"> TutorPalvelu on super awesome palvelu, joka tarjoaa oppijoille tutoreita</h3>
-    <p></p>
-    <h2>Kirjaudu sisään: </h2>
+
     @using (Html.BeginForm("Index", "Home", FormMethod.Post))
     {
+        <fieldset>
+            <legend>Kirjaudu</legend>
+            <table cellpadding="5" cellspacing="0" style="margin:auto">
+                <tr>
 
-        <table cellpadding="5" cellspacing="0" style="margin:auto">
-            <tr>
-                
-                <td>
-                    @Html.TextBox("username", "Käyttäjätunnus")
-                </td>
-            </tr>
-            <tr>
-                <td>
-                    @Html.Password("password", "salasana")
-                </td>
-            </tr>
-            <tr>
-                <td><input type="submit" value="Sisään" class="btn btn-outline-primary"/></td>
-                <td></td>
-            </tr>
-        </table>
+                    <td>
+                        @Html.TextBox("username", "Käyttäjätunnus")
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        @Html.Password("password", "salasana")
+                    </td>
+                </tr>
+                <tr>
+                    <td><input type="submit" value="Sisään" class="btn btn-outline-primary" />
+                    <button class="btn btn-outline-primary">@Html.ActionLink("Uusi käyttäjä?", "LisääHenkilö", "Henkilö")</button></td>
+                </tr>
+            </table>
+        </fieldset>
     }
-    @if(ViewBag.AuthOK == false)
-            {
-                <p class="alert alert-danger" role="alert">Salasana tai käyttäjätunnus väärin<br />Yritä uudelleen</p>
-            }
-    <br />
-    <button class="btn btn-outline-primary">@Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")</button>
+    <div class="leipäteksti">
+        @if (ViewBag.AuthOK == false)
+        {
+            <p class="alert alert-danger" role="alert">Salasana tai käyttäjätunnus väärin<br />Yritä uudelleen</p>
+        }
+    </div>
 </div>

@@ -9,9 +9,38 @@ a.navbar-brand {
 
 /* Provide sufficient contrast against white background */
 
-a {
+#taulukko tbody tr:hover{
+    background-color: lightgrey !important;
+}
+
+
+@font-face {
+    font-family: otsikko;
+    src: url('/AldithRegular.ttf');
+}
+
+.linkki {
     color: #0366d6;
 }
+
+fieldset {
+    background-color: ghostwhite;
+    padding-bottom: 30px;
+}
+
+h1, h2 {
+    font-family: otsikko;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+    a:hover {
+        color: white;
+        text-decoration: none;
+    }
 
 p {
     padding-top: 30px;
@@ -20,6 +49,7 @@ p {
 
 table {
     margin-top:30px;
+    margin-bottom: 30px;
 }
 
 form {
