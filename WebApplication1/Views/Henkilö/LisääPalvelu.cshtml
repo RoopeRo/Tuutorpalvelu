@@ -4,13 +4,14 @@
     ViewData["Title"] = "LisääPalvelu";
 }
 
-<h1>Lisää palvelu</h1>
+<h3>Lisää palvelu</h3>
 
 @if (ViewBag.Virhe != null)
 {
-    <h3 style="color: red">Palvelun lisääminen epäonnistui, yritä uudelleen!</h3>
+    <h4 style="color: red">Palvelun lisääminen epäonnistui, yritä uudelleen!</h4>
 }
 <hr />
+<h3>Lisää palvelu</h3>
 <div class="row">
     <div class="col-md-4" >
         <form asp-action="LisääPalvelu" class="form-floating">

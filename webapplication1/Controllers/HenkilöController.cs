@@ -139,14 +139,22 @@ namespace WebApplication1.Controllers
             DataAccess da = new DataAccess(_context);
             var id = HttpContext.Session.GetInt32("id");
             var tutor = HttpContext.Session.GetString("tutor");
-            if (id != null && tutor == "true")
+            try
             {
-            da.lisääpalvelu(palvelu, id);
-            return RedirectToAction("HaeTutorinPalvelut");
+                if (id != null && tutor == "true")
+                {
+                    da.lisääpalvelu(palvelu, id);
+                    return RedirectToAction("HaeTutorinPalvelut");
+                }
+                else
+                {
+                    return RedirectToAction("SivuKaatuu", "Home");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                return RedirectToAction("SivuKaatuu", "Home");
+                ViewBag.Virhe = ex;
+                return View();
             }
 
         }
