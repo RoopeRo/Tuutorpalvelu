@@ -12,66 +12,70 @@
 
 
 
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Nimi
+            </th>
+            <th>
+                Tyyppi
+            </th>
+            <th>
+                Ryhmä
+            </th>
+            <th>
+                Hinta
+            </th>
+            <th>
+                Pvm
+            </th>
+            <th>
+                Kesto
+            </th>
+            <th>
+                Sijainti
+            </th>
 
-<hr />
-@*<div class="row">
-    <div class="col-md-4">
-        <form asp-action="HaePalvelutFiltteri">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="PalveluId" />
-            <div class="form-group">
-                <label asp-for="Nimi" class="control-label"></label>
-                <input asp-for="Nimi" class="form-control" />
-                <span asp-validation-for="Nimi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Tyyppi" class="control-label"></label>
-                <input asp-for="Tyyppi" class="form-control" />
-                <span asp-validation-for="Tyyppi" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Ryhmä" class="control-label"></label>
-                <input asp-for="Ryhmä" class="form-control" />
-                <span asp-validation-for="Ryhmä" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Hinta" class="control-label"></label>
-                <input asp-for="Hinta" class="form-control" />
-                <span asp-validation-for="Hinta" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Pvm" class="control-label"></label>
-                <input asp-for="Pvm" class="form-control" />
-                <span asp-validation-for="Pvm" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Kesto" class="control-label"></label>
-                <input asp-for="Kesto" class="form-control" />
-                <span asp-validation-for="Kesto" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Sijainti" class="control-label"></label>
-                <input asp-for="Sijainti" class="form-control" />
-                <span asp-validation-for="Sijainti" class="text-danger"></span>
-            </div>
-            <div class="form-group form-check">
-                <label class="form-check-label">
-                    <input class="form-check-input" asp-for="Varattu" /> @Html.DisplayNameFor(model => model.Varattu)
-                </label>
-            </div>
-            <div class="form-group">
-                <label asp-for="TutorId" class="control-label"></label>
-                <select asp-for="TutorId" class="form-control" asp-items="ViewBag.TutorId"></select>
-                <span asp-validation-for="TutorId" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <input type="submit" value="Hae" class="btn btn-primary" />
-            </div>
-        </form>
-    </div>
-</div>
-
-<div> </div>*@
+            <th></th>
+        </tr>
+    </thead>
+    @if (ViewBag.palvelut != null)
+    {
+    <tbody>
+        @foreach (var item in ViewBag.palvelut)
+        {
+            <tr>
+                <td>
+                    @item.Nimi
+                </td>
+                <td>
+                    @item.Tyyppi
+                </td>
+                <td>
+                    @item.Ryhmä
+                </td>
+                <td>
+                    @item.Hinta
+                </td>
+                <td>
+                    @item.Pvm
+                </td>
+                <td>
+                    @item.Kesto
+                </td>
+                <td>
+                    @item.Sijainti
+                </td>
+                <td>
+   
+                    @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
+                 
+                </td>
+            </tr>
+        }
+    </tbody>}
+</table>
 
 <div>
     <a asp-action="Index">Back to List</a>
