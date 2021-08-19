@@ -17,7 +17,7 @@
                 <span asp-validation-for="Nimi" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Tyyppi" class="control-label"></label>
+                <label asp-for="Tyyppi" class="control-label">Kategoria</label>
                 <select asp-for="Tyyppi" class="form-control">
                     <option value="Kotitalostaidot">Kotitaloustaidot</option>
                     <option value="Liikunta">Liikunta</option>
@@ -27,7 +27,7 @@
                 <span asp-validation-for="Tyyppi" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Ryhmä" class="control-label"></label>
+                <label asp-for="Ryhmä" class="control-label">Alakategoria</label>
                 <input asp-for="Ryhmä" class="form-control" />
                 <span asp-validation-for="Ryhmä" class="text-danger"></span>
             </div>
@@ -42,7 +42,7 @@
                 <span asp-validation-for="Pvm" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Kesto" class="control-label"></label>
+                <label asp-for="Kesto" class="control-label">Kesto minuuteissa</label>
                 <input asp-for="Kesto" class="form-control" />
                 <span asp-validation-for="Kesto" class="text-danger"></span>
             </div>

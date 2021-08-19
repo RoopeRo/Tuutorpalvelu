@@ -17,10 +17,10 @@
                 Nimi
             </th>
             <th>
-                Tyyppi
+                Kategoria
             </th>
             <th>
-                Ryhmä
+                Alakategoria
             </th>
             <th>
                 Hinta
@@ -29,7 +29,7 @@
                 Pvm
             </th>
             <th>
-                Kesto
+                Kesto minuuteissa
             </th>
             <th>
                 Sijainti
@@ -48,7 +48,7 @@
         {
         <tr>
             <td>
-                @item.Nimi
+                @Html.ActionLink($"{item.Nimi}", "HaeDetails", "Palvelu", new { id = item.PalveluId })
             </td>
             <td>
                 @item.Tyyppi
