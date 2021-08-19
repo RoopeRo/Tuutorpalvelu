@@ -134,7 +134,7 @@ namespace WebApplication1
 
         public List<Palvelu> hakusana(string hakusana)
         {
-            var lista = db.Palvelus
+            var lista = db.Palvelus.Include(a => a.Tutor)
                .Where(p => p.Nimi.ToLower().Contains(hakusana.ToLower()) 
                || p.Sijainti.ToLower().Contains(hakusana.ToLower()     ) 
                || p.Tyyppi.ToLower().Contains(hakusana.ToLower()       )
