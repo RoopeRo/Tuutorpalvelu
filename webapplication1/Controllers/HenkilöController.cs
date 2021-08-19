@@ -138,8 +138,17 @@ namespace WebApplication1.Controllers
         {
             DataAccess da = new DataAccess(_context);
             var id = HttpContext.Session.GetInt32("id");
+            var tutor = HttpContext.Session.GetString("tutor");
+            if (id != null && tutor == "true")
+            {
             da.lisääpalvelu(palvelu, id);
             return RedirectToAction("HaeTutorinPalvelut");
+            }
+            else
+            {
+                return RedirectToAction("SivuKaatuu", "Home");
+            }
+
         }
 
         [HttpGet/*(Name = "HaeMuokattavaPalvelua")*/] //siirrytään tiettyyn palveluun uniikin palveluid perusteella, uusi muokkausnäkymä
@@ -150,7 +159,7 @@ namespace WebApplication1.Controllers
             var muokattavapalvelu = da.haepalvelut().Where(p => p.PalveluId == palveluid).ToList().FirstOrDefault();
             if (muokattavapalvelu == null)
             {
-                return RedirectToAction("Virhe", "Home");
+                return RedirectToAction("SivuKaatuu", "Home");
             }
             else if (id == muokattavapalvelu.TutorId)
             {
@@ -178,7 +187,7 @@ namespace WebApplication1.Controllers
             var palvelu = da.haepalvelut().Where(p => p.PalveluId == id).FirstOrDefault();
             if (palvelu == null)
             {
-                return RedirectToAction("Virhe", "Home");
+                return RedirectToAction("SivuKaatuu", "Home");
             }
             else if (tutorid == palvelu.TutorId)
             {
