@@ -133,31 +133,33 @@ namespace WebApplication1
 
         public List<Palvelu> hakusana(string hakusana)
         {
-            var lista = db.Palvelus.Include(a => a.Tutor)
-               .Where(p => p.Nimi.ToLower().Contains(hakusana.ToLower()) 
+            var lista = db.Palvelus.Include(p=> p.Tutor).Where(p => p.Nimi.ToLower().Contains(hakusana.ToLower()) 
                || p.Sijainti.ToLower().Contains(hakusana.ToLower()     ) 
                || p.Tyyppi.ToLower().Contains(hakusana.ToLower()       )
-               || p.Ryhmä.ToLower().Contains(hakusana.ToLower())      ).ToList();
+               || p.Ryhmä.ToLower().Contains(hakusana.ToLower())
+               || p.Tutor.Sukunimi.ToLower().Contains(hakusana.ToLower())
+               || p.Tutor.Etunimi.ToLower().Contains(hakusana.ToLower())
+               ).ToList();
 
-            if (lista.Count == 0)
-            {
-                List<Palvelu> lista2 = new List<Palvelu>();
-                var q = db.People.Include(a => a.Palvelus);
+            //if (lista.Count == 0)
+            //{
+            //    List<Palvelu> lista2 = new List<Palvelu>();
+            //    var q = db.People.Include(a => a.Palvelus);
 
-                var tuutorit = q
-                    .Where(p => p.Etunimi.ToLower().Contains(hakusana.ToLower())
-                   || p.Sukunimi.ToLower().Contains(hakusana.ToLower())).ToList();
+            //    var tuutorit = q
+            //        .Where(p => p.Etunimi.ToLower().Contains(hakusana.ToLower())
+            //       || p.Sukunimi.ToLower().Contains(hakusana.ToLower())).ToList();
 
-                foreach (var item in tuutorit)
-                {
-                    foreach (var palvelu in item.Palvelus)
-                    {
-                        lista2.Add(palvelu);
+            //    foreach (var item in tuutorit)
+            //    {
+            //        foreach (var palvelu in item.Palvelus)
+            //        {
+            //            lista2.Add(palvelu);
 
-                    }
-                }
-                return lista2;
-            }
+            //        }
+            //    }
+            //    return lista2;
+            //}
 
             return lista;
         }
