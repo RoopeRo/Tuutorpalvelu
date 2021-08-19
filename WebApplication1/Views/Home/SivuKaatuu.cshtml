@@ -3,9 +3,8 @@
 *@
 @{
 }
-<h2>Tapahtui virhe</h2>
-<p>Yritit kaataa tämän sivun ja Marko setä on nyt hyvin vihainen >=(</p>
-<br />
-@Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")
-<br />
-@Html.ActionLink("Kirjaudu", "Index", "Home")
+<h3>Tapahtui virhe</h3>
+<p class="alert alert-danger" role="alert">Yritit kaataa tämän sivun ja Marko setä on nyt hyvin vihainen >=(</p>
+<button class="btn btn-outline-primary">@Html.ActionLink("Uusi käyttäjä", "LisääHenkilö", "Henkilö")</button><br />
+
+<button class="btn btn-outline-secondary"> @Html.ActionLink("Kirjaudu", "Index", "Home")</button>
