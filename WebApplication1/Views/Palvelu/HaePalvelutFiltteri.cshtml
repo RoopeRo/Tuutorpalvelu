@@ -34,6 +34,9 @@
             <th>
                 Sijainti
             </th>
+            <th>
+                Tuutori
+            </th>
 
             <th></th>
         </tr>
@@ -43,34 +46,37 @@
     <tbody>
         @foreach (var item in ViewBag.palvelut)
         {
-            <tr>
-                <td>
-                    @item.Nimi
-                </td>
-                <td>
-                    @item.Tyyppi
-                </td>
-                <td>
-                    @item.Ryhmä
-                </td>
-                <td>
-                    @item.Hinta
-                </td>
-                <td>
-                    @item.Pvm
-                </td>
-                <td>
-                    @item.Kesto
-                </td>
-                <td>
-                    @item.Sijainti
-                </td>
-                <td>
-   
-                    @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
-                 
-                </td>
-            </tr>
+        <tr>
+            <td>
+                @item.Nimi
+            </td>
+            <td>
+                @item.Tyyppi
+            </td>
+            <td>
+                @item.Ryhmä
+            </td>
+            <td>
+                @item.Hinta
+            </td>
+            <td>
+                @item.Pvm
+            </td>
+            <td>
+                @item.Kesto
+            </td>
+            <td>
+                @item.Sijainti
+            </td>
+            <td>
+                Tähän nimi
+            </td>
+            <td>
+
+                @*<a asp-action="Details" asp-route-id="@item.PalveluId">Tiedot</a> |*@
+
+            </td>
+        </tr>
         }
     </tbody>}
 </table>

@@ -10,7 +10,7 @@
 }
 @if (ViewBag.Palvelu.Varattu == true)
 {
-    <p style="color:darkred"><b>Tämä palvelu on jo varattu</b></p>
+    <p style="color:darkred"><b>Tämä kurssi on jo täynnä</b></p>
 }
 
 <table id="taulukko" class="table table-striped" id="details">
@@ -20,11 +20,11 @@
             <th scope="row">Varaustilanne</th>
             @if (ViewBag.Palvelu.Varattu == true)
             {
-                <td>Varattu</td>
+                <td>Täynnä</td>
             }
             @if (ViewBag.Palvelu.Varattu == false)
             {
-                <td>Vapaa</td>
+                <td>Tilaa</td>
             }
 
         </tr>
