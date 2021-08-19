@@ -38,15 +38,34 @@
             {
                 if (i == 7)
                 {
-                    <td style="color:red">
-                        @(i-ViewBag.EnsimmainenPaiva+1)
-                    </td>
+                    if (ViewBag.PalveluPäivät.Contains(i - ViewBag.EnsimmainenPaiva + 1))
+                    {
+                        <td>
+                            @Html.ActionLink($"{(i - ViewBag.EnsimmainenPaiva + 1)}", "Varauskalenteri", "Kalenteri", new { päivä = $"{(i - ViewBag.EnsimmainenPaiva + 1)}", kuukausi = ViewBag.KNro, vuosi = ViewBag.Vuosi })
+                        </td>
+                    }
+                    else
+                    {
+                        <td style="color:red">
+                            @(i-ViewBag.EnsimmainenPaiva+1)
+                        </td>
+                    }
+
                 }
                 else
                 {
-                    <td>
-                        @(i-ViewBag.EnsimmainenPaiva+1)
-                    </td>
+                    if (ViewBag.PalveluPäivät.Contains(i - ViewBag.EnsimmainenPaiva + 1))
+                    {
+                        <td>
+                            @Html.ActionLink($"{(i - ViewBag.EnsimmainenPaiva + 1)}", "Varauskalenteri", "Kalenteri", new { id = $"{(i - ViewBag.EnsimmainenPaiva + 1)}" })
+                        </td>
+                    }
+                    else
+                    {
+                        <td>
+                            @(i-ViewBag.EnsimmainenPaiva+1)
+                        </td>
+                    }
                 }
             }
             else
@@ -71,18 +90,38 @@
                 {
                     if (j == 6)
                     {
-                        <td style="color:red">
-                            @i
-                    </td>
-                }
-                else
-                {
-                    <td>
-                        @i
-                    </td>
-                }
+                        if (ViewBag.PalveluPäivät.Contains(i))
+                        {
+                            <td>
+                                @Html.ActionLink($"{i}", "Varauskalenteri", "Kalenteri", new { päivä = $"{i}", kuukausi = ViewBag.KNro, vuosi = ViewBag.Vuosi })
+                            </td>
+                        }
+                        else
+                        {
+                            <td style="color:red">
+                                @i
+                            </td>
+                        }
 
-            }
+                    }
+                    else
+                    {
+                        if (ViewBag.PalveluPäivät.Contains(i))
+                        {
+                            <td>
+                                @Html.ActionLink($"{i}", "Varauskalenteri", "Kalenteri", new { päivä = $"{i}", kuukausi = ViewBag.KNro, vuosi = ViewBag.Vuosi })
+                            </td>
+                        }
+                        else
+                        {
+                            <td>
+                                @i
+                            </td>
+                        }
+
+                    }
+
+                }
 
 
             }

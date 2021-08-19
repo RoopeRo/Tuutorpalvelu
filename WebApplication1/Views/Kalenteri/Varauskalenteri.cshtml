@@ -1,0 +1,38 @@
+﻿@model List<WebApplication1.Models.Palvelu>
+
+@{
+    ViewData["Title"] = "Varauskalenteri";
+}
+@if(ViewBag.Varaukset != null)
+{ 
+<h1>@ViewBag.Kuukausi @ViewBag.Päivä @ViewBag.Vuosi</h1>
+<table id="VarausKalenteri">
+    <thead>
+        <tr>
+            <th>Palvelu</th>
+            <th>Sijainti</th>
+            <th>Hinta</th>
+            @*<th>Tutor</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var palvelu in Model)
+        {
+        <tr>
+            <td>
+                @palvelu.Nimi
+            </td>
+            <td>
+                @palvelu.Sijainti
+            </td>
+            <td>
+                @palvelu.Hinta
+            </td>
+            @*<td>
+                @palvelu.Tutor
+            </td>*@
+        </tr>
+        }
+    </tbody>
+</table>
+}
