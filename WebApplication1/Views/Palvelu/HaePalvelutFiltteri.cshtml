@@ -48,7 +48,7 @@
         {
         <tr>
             <td>
-                @item.Nimi
+                @Html.ActionLink($"{item.Nimi}", "HaeDetails", "Palvelu", new { id = item.PalveluId })
             </td>
             <td>
                 @item.Tyyppi
