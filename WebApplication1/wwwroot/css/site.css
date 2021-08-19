@@ -7,12 +7,39 @@ a.navbar-brand {
   word-break: break-all;
 }
 
+
+/*ANIMOINTI*/
+
+@keyframes otsikko {
+    0% {
+        top: -200px
+    }
+
+    25% {
+        top: 0px
+    }
+
+    60% {
+        top: -20px
+    }
+
+    100% {
+        top: 0px
+    }
+}
+
+#animoitu {
+    animation-name: otsikko;
+    position: relative;
+    animation-duration: 4s;
+}
+
+
 /* Provide sufficient contrast against white background */
 
 #taulukko tbody tr:hover{
     background-color: lightgrey !important;
 }
-
 
 @font-face {
     font-family: otsikko;
@@ -24,7 +51,7 @@ a.navbar-brand {
 }
 
 fieldset {
-    background-color: gainsboro;
+    background-color: ghostwhite;
     padding-bottom: 30px;
 }
 

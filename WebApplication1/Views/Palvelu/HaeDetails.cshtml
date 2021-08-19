@@ -1,6 +1,6 @@
 ﻿@model WebApplication1.Models.Palvelu
 
-<h1>@ViewBag.Palvelu.Nimi</h1>
+<h3>@ViewBag.Palvelu.Nimi</h3>
 <p>@ViewBag.Palvelu.Kuvaus</p>
 
 @if (ViewBag.Palvelu.Varattu == false)
@@ -13,7 +13,7 @@
     <p style="color:darkred"><b>Tämä kurssi on jo täynnä</b></p>
 }
 
-<table id="taulukko" class="table table-striped" id="details">
+<table class="table table-striped" id="taulukko" @*id="details"*@>
     @if (ViewBag.Palvelu != null)
     {
         <tr>
