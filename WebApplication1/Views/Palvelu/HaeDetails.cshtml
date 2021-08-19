@@ -1,34 +1,105 @@
 ﻿@model WebApplication1.Models.Palvelu
-<h1>Tarjolla olevat palvelut</h1>
-<table class="table">
-    <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Nimi)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Pvm)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Kesto)</th>
-            <th scope="col">@Html.DisplayNameFor(model => model.Hinta)</th>
-            <th scope="col">Tutor</th>
-        </tr>
-    </thead>
-    <tbody>
+    <p>Varaa palvelu ottamlla suoraan yhteyttä palveluntarjoajaan!</p>
+    </br>
+
+    <h1>Palvelun tiedot</h1>
+    @*<table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Nimi)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Ryhmä)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Tyyppi)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Pvm)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Kesto)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Sijainti)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Hinta)</th>
+                    <th scope="col">Tutor</th>
+                    <th scope="col">Yhetystiedot</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (ViewBag.Palvelut != null)
+                {
+                    @foreach (var pal in ViewBag.Palvelut)
+                    {
+                        <tr>
+                            <td>@pal.PalveluId</td>
+                            <td>@pal.Nimi</td>
+                            <td>@pal.Ryhmä</td>
+                            <td>@pal.Tyyppi</td>
+                            <td>@pal.Pvm</td>
+                            <td>@pal.Kesto</td>
+                            <td>@pal.Sijainti</td>
+                            <td>@pal.Hinta</td>
+                            <td>@($"{pal.Tutor.Etunimi} {pal.Tutor.Sukunimi}")</td>
+                            <td>@pal.Tutor.PuhNro <a href="mailto:@pal.Tutor.Email">@pal.Tutor.Email</a></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>*@
+
+    <table class="table">
         @if (ViewBag.Palvelut != null)
         {
             @foreach (var pal in ViewBag.Palvelut)
             {
                 <tr>
+                    <th scope="row">#</th>
                     <td>@pal.PalveluId</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Nimi)</th>
                     <td>@pal.Nimi</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Ryhmä)</th>
                     <td>@pal.Ryhmä</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Tyyppi)</th>
                     <td>@pal.Tyyppi</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Pvm)</th>
                     <td>@pal.Pvm</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Kesto)</th>
                     <td>@pal.Kesto</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Sijainti)</th>
+                    <td>@pal.Sijainti</td>
+                </tr>
+                <tr>
+                    <th scope="row">@Html.DisplayNameFor(model => model.Hinta)</th>
                     <td>@pal.Hinta</td>
+                </tr>
+                <tr>
+                    <th scope="row">Tutor</th>
                     <td>@($"{pal.Tutor.Etunimi} {pal.Tutor.Sukunimi}")</td>
                 </tr>
+                <tr>
+                    <th scope="row">Puhelinnumero</th>
+                    <td>@pal.Tutor.PuhNro</td>
+                </tr>
+                <tr>
+                    <th scope="row">Sähköposti</th>
+                    <td > <a href="mailto:@pal.Tutor.Email">@pal.Tutor.Email</a></td>
+                </tr>
+
+
+
+
+
+
+
+
+
+
             }
         }
-    </tbody>
-</table>
+
+    </table>
