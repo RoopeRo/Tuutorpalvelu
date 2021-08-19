@@ -4,9 +4,12 @@
     ViewData["Title"] = "LisääPalvelu";
 }
 
-<h1>LisääPalvelu</h1>
+<h1>Lisää palvelu</h1>
 
-<h4>Palvelu</h4>
+@if (ViewBag.Virhe != null)
+{
+    <h3 style="color: red">Palvelun lisääminen epäonnistui, yritä uudelleen!</h3>
+}
 <hr />
 <div class="row">
     <div class="col-md-4">

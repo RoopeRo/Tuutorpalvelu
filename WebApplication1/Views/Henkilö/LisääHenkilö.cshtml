@@ -74,19 +74,7 @@
 <div>
     @Html.ActionLink("Paluu etusivulle", "Index", "Home")
 </div>
-@*<div>
-    @if (ViewBag.People != null)
-    {
 
-        @foreach (var p in ViewBag.People)
-        {
-            <ul>
-                <li>@p.Etunimi</li>
-            </ul>
-        }
-    }
-
-</div>*@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
