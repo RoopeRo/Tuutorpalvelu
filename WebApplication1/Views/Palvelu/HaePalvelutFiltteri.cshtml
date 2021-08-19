@@ -4,11 +4,17 @@
     ViewData["Title"] = "HaePalvelutFiltteri";
 }
 
-<h1>HaePalvelutFiltteri</h1>
+<h1>Hae Palveluja</h1>
+<form action="HaePalvelutFiltteri" method="post">
+    <input type="text" name="hakusana" value="" />
+    <input type="submit" value="Hae" class="btn btn-primary" />
+</form>
 
-<h4>Palvelu</h4>
+
+
+
 <hr />
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <form asp-action="HaePalvelutFiltteri">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -65,7 +71,7 @@
     </div>
 </div>
 
-<div> </div>
+<div> </div>*@
 
 <div>
     <a asp-action="Index">Back to List</a>

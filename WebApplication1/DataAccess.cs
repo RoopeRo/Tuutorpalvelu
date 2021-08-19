@@ -131,5 +131,16 @@ namespace WebApplication1
             db.SaveChanges();
         }
 
+        public List<Palvelu> hakusana(string hakusana)
+        {
+            var lista = db.Palvelus
+               .Where(p => p.Nimi.ToLower().Contains(hakusana.ToLower()) 
+               || p.Sijainti.ToLower().Contains(hakusana.ToLower()     ) 
+               || p.Tyyppi.ToLower().Contains(hakusana.ToLower()       )
+               || p.Ryhmä.ToLower().Contains(hakusana.ToLower())      ).ToList();
+
+            return lista;
+        }
+
     }
 }
