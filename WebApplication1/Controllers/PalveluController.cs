@@ -45,11 +45,15 @@ namespace WebApplication1.Controllers
             ViewBag.Palvelu = palvelu;
             return View();
         }
-        [HttpPost]
-        public IActionResult HaePalvelutFiltteri()
+        
+        public IActionResult HaePalvelutFiltteri(string hakusana)
         {
+            DataAccess da = new DataAccess(_context);
+            var lista = da.hakusana(hakusana);
+
             return View();
         }
+
 
     }
 }

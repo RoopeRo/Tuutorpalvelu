@@ -28,9 +28,46 @@ namespace WebApplication1.Controllers
             var Paivakirja = new Dictionary<string, int>() { { "Monday", 1 }, { "Tuesday", 2 }, { "Wednesday", 3 }, { "Thursday", 4 }, { "Friday", 5 }, { "Saturday", 6 }, { "Sunday", 7 } };
             var kuluvakuu = new DateTime((int)(vuosi == null ? DateTime.Now.Year : vuosi), (int)(kuukausi == null ? DateTime.Now.Month : kuukausi), 1);
             ViewBag.EnsimmainenPaiva = Paivakirja[kuluvakuu.DayOfWeek.ToString()];
-            ViewBag.Palvelut = new DataAccess(_context).haepalvelut();
+            DataAccess da = new DataAccess(_context);
+            List<Palvelu> palvelut = new List<Palvelu>();
+            if (vuosi != null && kuukausi != null)
+            {
+                palvelut = da.haepalvelut().Where(x => x.Pvm.Year == vuosi && x.Pvm.Month == kuukausi).ToList();
+            }
+            else
+            {
+                palvelut = da.haepalvelut().Where(x => x.Pvm.Year == DateTime.Now.Year && x.Pvm.Month == DateTime.Now.Month).ToList();
+            }
+            var päivätJoillaPalveluita = new List<int>();
+            foreach(var p in palvelut)
+            {
+                if (!päivätJoillaPalveluita.Contains(p.Pvm.Day))
+                {
+                    päivätJoillaPalveluita.Add(p.Pvm.Day);
+                }
+            }
+            ViewBag.PalveluPäivät = päivätJoillaPalveluita;
             return View();
         }
+        public IActionResult Varauskalenteri(int kuukausi, int vuosi, int päivä)
+        {
+            if (päivä == 0)
+            {
+                ViewBag.Varaukset = null;
+                return View();
+            }
+            else
+            {
+                var palvelut = new DataAccess(_context).haepalvelut().Where(p => p.Pvm.Day == päivä).ToList();
+                
+                ViewBag.Vuosi = vuosi;
+                ViewBag.Kuukausi = (Kuukausi)kuukausi;
+                ViewBag.Päivä = päivä;
+                ViewBag.Varaukset = palvelut.Count();
+                return View(palvelut);
+            }
+        }
+
     }
     public enum Kuukausi
     {
