@@ -80,6 +80,10 @@ namespace WebApplication1.Controllers
         {
             var id = HttpContext.Session.GetInt32("id");
             var henkilö = new DataAccess(_context).HaeKäyttäjä(id);
+            if (henkilö == null)
+            {
+                return RedirectToAction("Virhe", "Home");
+            }
             return View(henkilö);
         }
 
@@ -90,13 +94,22 @@ namespace WebApplication1.Controllers
             da.EditoiHenkilöä(henkilö);
             return RedirectToAction("OmatTiedot", new { Id = henkilö.PersonId });
         }
-        public IActionResult PoistaHenkilö(int Id)
+        public IActionResult PoistaHenkilö()
         {
+            var Id = HttpContext.Session.GetInt32("id");
             DataAccess da = new DataAccess(_context);
             var henkilö = da.HaeTutor(Id);
-            da.PoistaHenkilö(henkilö);
-            HttpContext.Session.Clear();
-            return RedirectToAction("Index", "Home");
+            if (henkilö == null)
+            {
+                return RedirectToAction("Virhe", "Home");
+            }
+            else
+            {
+                da.PoistaHenkilö(henkilö);
+                HttpContext.Session.Clear();
+                return RedirectToAction("Index", "Home");
+
+            }
         }
 
         /// <summary>
@@ -135,7 +148,11 @@ namespace WebApplication1.Controllers
             var id = HttpContext.Session.GetInt32("id");
             DataAccess da = new DataAccess(_context);
             var muokattavapalvelu = da.haepalvelut().Where(p => p.PalveluId == palveluid).ToList().FirstOrDefault();
-            if (id == muokattavapalvelu.TutorId)
+            if (muokattavapalvelu == null)
+            {
+                return RedirectToAction("Virhe", "Home");
+            }
+            else if (id == muokattavapalvelu.TutorId)
             {
                 return View(muokattavapalvelu);
             }
@@ -159,7 +176,11 @@ namespace WebApplication1.Controllers
             var tutorid = HttpContext.Session.GetInt32("id");
             DataAccess da = new DataAccess(_context);
             var palvelu = da.haepalvelut().Where(p => p.PalveluId == id).FirstOrDefault();
-            if (tutorid == palvelu.TutorId)
+            if (palvelu == null)
+            {
+                return RedirectToAction("Virhe", "Home");
+            }
+            else if (tutorid == palvelu.TutorId)
             {
 
                 da.PoistaPalvelu(palvelu);
