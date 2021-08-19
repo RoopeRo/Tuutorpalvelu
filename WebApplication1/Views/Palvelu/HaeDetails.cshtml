@@ -1,6 +1,8 @@
 ﻿@model WebApplication1.Models.Palvelu
 
-    <h3>Palvelun tiedot</h3>
+<h1>@ViewBag.Palvelu.Nimi</h1>
+<p>@ViewBag.Palvelu.Kuvaus</p>
+
 @if (ViewBag.Palvelu.Varattu == false)
 {
     <p>Varaa palvelu ottamalla suoraan yhteyttä palveluntarjoajaan!</p>
