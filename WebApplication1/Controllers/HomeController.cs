@@ -79,5 +79,10 @@ namespace WebApplication1.Controllers
         {
             return View();
         }
+        public IActionResult Uloskirjaus()
+        {
+            HttpContext.Session.Clear();
+            return View();
+        }
     }
 }
