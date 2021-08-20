@@ -27,6 +27,7 @@
                     <option value="Liikunta">Liikunta</option>
                     <option value="Business">Business</option>
                     <option value="Käsityöt">Käsityöt</option>
+                    <option value="Musiikki">Musiikki</option>
                 </select>
                 <span asp-validation-for="Tyyppi" class="text-danger"></span>
             </div>
@@ -47,7 +48,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Kesto" class="control-label"></label>
-                <input asp-for="Kesto" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Laita kesto tunneissa ja minuuteissa"/>
+                <input asp-for="Kesto" class="form-control" data-bs-toggle="tooltip" data-bs-placement="top" title="Kesto minuuteissa"/>
                 <span asp-validation-for="Kesto" class="text-danger"></span>
             </div>
             <div class="form-group">
