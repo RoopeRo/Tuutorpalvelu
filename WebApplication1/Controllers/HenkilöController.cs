@@ -105,9 +105,12 @@ namespace WebApplication1.Controllers
             else
             {
                 var palvelut = da.haepalvelut().Where(h => h.TutorId == henkilö.PersonId).ToList();
-                foreach(var palvelu in palvelut)
+                if (palvelut != null)
                 {
-                    da.PoistaPalvelu(palvelu);
+                    foreach (var palvelu in palvelut)
+                    {
+                        da.PoistaPalvelu(palvelu);
+                    }
                 }
                 da.PoistaHenkilö(henkilö);
                 HttpContext.Session.Clear();
